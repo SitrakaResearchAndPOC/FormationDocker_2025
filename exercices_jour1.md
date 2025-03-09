@@ -236,6 +236,10 @@ env
 ```
 Un variable environnement particulier le hostname : 
 ```
+exit
+```
+
+```
 docker run -tid --name testenv --hostname sitraka ubuntu:latest
 ```
 ```
