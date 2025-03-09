@@ -152,9 +152,6 @@ docker ps -a
 docker run -d --name c1 nginx
 ```
 ```
-exit
-```
-```
 docker ps -a
 ```
 ```
