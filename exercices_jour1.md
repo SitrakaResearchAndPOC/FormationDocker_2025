@@ -179,3 +179,68 @@ Entrer sur le navigateur :
 ```
 localhost:8080
 ```
+# Exercices 3 : Variables d'environnements
+Lister les images via docker image ls
+```
+docker image ls
+```
+Pour avoir un tty, il faut toujours le mode detaché! </br>
+Pour le variable d'environnement, il est possible d'utiliser --env ou -e </br>
+```
+docker run -tid --name testenv --env MYVARIABLE="123456" ubuntu:latest
+```
+```
+docker ps
+```
+Pour rendre dans le conteneur, l'option exec
+```
+docker exec -ti testenv sh
+```
+OU 
+```
+docker exec -ti testenv bash
+```
+utiliser la commande env
+```
+env
+```
+```
+echo $MYVARIABLE
+```
+```
+ps
+```
+En combinant les deux directement :
+```
+docker exec -ti testenv env
+```
+C'est facile, mais il y a certain variable qu'on veut pas faire passer par cli : 
+```
+nano vars_env.lst
+```
+```
+MYPASSWORD="123456"
+MYDB="vm01"
+```
+```
+docker rm -f testenv
+```
+```
+docker run -tid --name testenv --env-file vars_env.lst ubuntu:latest
+```
+```
+docker exec -ti testenv bash
+```
+```
+env
+```
+Un variable environnement particulier le hostname : 
+```
+docker run -tid --name testenv --hostname sitraka ubuntu:latest
+```
+```
+docker exec -ti testenv bash
+```
+```
+hostname
+```
