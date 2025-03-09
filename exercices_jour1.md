@@ -397,7 +397,8 @@ docker tag  myalpine:v2.0 myalpine:latest
 docker images
 ```
 ```
-docker login -u  <users> </br>
+docker login -u  <users> 
+```
 <users> : sitrakaresearchandpoc</br> </br>
 
 créer une version : 
