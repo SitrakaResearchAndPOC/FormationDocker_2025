@@ -72,7 +72,6 @@ docker start c1
 ```
 docker ps 
 ```
-```
 -f car le conteneur est actif : 
 ```
 docker rm -f c1
