@@ -32,10 +32,19 @@ docker ps
 docker run nginx:latest
 ```
 ```  
+docker ps
+```
+```  
 docker ps -a
 ```
 ```  
 docker run -d nginx:latest
 ```  
+```  
+docker ps
+```
+```  
+docker ps -a
+```
 
 
