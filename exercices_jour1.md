@@ -330,5 +330,85 @@ docker image rm monimage:v1.0
 docker image ls
 ```
 
+# Exercice 5 : Methode peu connue (sauvegarder et charger une image docker)
+Sauvegarder 
+
+docker save -o dir/name.file <registry><image>:version
+
+Charger  :
+
+docker load -i <fichier.tar>
+```
+docker save -o myalpine.tar alpine:latest
+```
+```
+tar -C dtar/ -xvf myalpine.tar
+```
+```
+cd dtar/
+```
+```
+docker rmi alpine
+```
+```
+docker load -i myalpine.tar
+```
+```
+docker images
+```
+
+# Exercice 6 : les tags pour les versions 
+docker tag  <images_source>:<version> <images_dest>:<version>
+```
+docker pull alpine
+```
+```
+docker image ls
+```
+OU 
+```
+docker images 
+```
+```
+docker tag alpine:latest myalpine:v1.0
+```
+```
+docker images
+```
+Deux tags mais un seul image
+```
+docker run -ti myalpine:v1.0
+```
+Créer un tag la version v1.0 en latest
+```
+docker tag  myalpine:v1.0 myalpine
+```
+```
+docker run -ti myalpine
+```
+Bonne pratique : Quand on monte en version
+```
+docker tag  myalpine:v1.0 myalpine:v2.0
+```
+```
+docker tag  myalpine:v2.0 myalpine:latest
+```
+```
+docker images
+```
+```
+docker login -u  <users> </br>
+<users> : sitrakaresearchandpoc</br> </br>
+
+créer une version : 
+```
+docker tag myalpine:v2.0 sitrakaresearchandpoc/myalpine:v2.0
+```
+```
+docker push sitrakaresearchandpoc/myalpine:v2.0
+```
+ 
+
+
 
 
