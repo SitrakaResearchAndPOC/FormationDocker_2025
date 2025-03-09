@@ -238,7 +238,9 @@ Un variable environnement particulier le hostname :
 ```
 exit
 ```
-
+```
+docker rm -f testenv
+```
 ```
 docker run -tid --name testenv --hostname sitraka ubuntu:latest
 ```
@@ -246,5 +248,87 @@ docker run -tid --name testenv --hostname sitraka ubuntu:latest
 docker exec -ti testenv bash
 ```
 ```
-hostname
+  hostname
 ```
+
+# Exercice 4 : 
+Création d'une image en installant git, nano, vim
+
+```
+docker image ls
+```
+```
+docker exec -ti test_env bash
+```
+```
+apt update
+```
+```
+apt install git vim nano 
+```
+Le problème avec l'image c'est qu'il faut savoir ce que vous avez dejà installé avec
+```
+git
+```
+```
+exit
+```
+```
+docker ps
+```
+capteur l'id de conteneur
+```
+docker commit -m  "création d'image comme commentaire" <id conteneur> monimage:v1.0
+```
+```
+docker image ls
+```
+Demarrons maintenant l'image : 
+```
+docker run -tid --name conteneurUbuntuPers monimage:v1.0
+```
+```
+docker ps
+```
+Connexion dans notre conteneur
+```
+docker exec -ti  conteneurUbuntuPers bash
+```
+```
+git
+```
+```
+exit
+```
+```
+docker image ls
+```
+Captuer id image
+```
+docker history <id image> 
+```
+OU
+```
+docker history monimage:v1.0
+```
+Suppression d'image (petit problème en testant ça)
+```
+docker image rm <id image> 
+```
+Il faut supprimer le conteneur pour supprimer l'image : 
+```
+docker rm -f conteneurUbuntuPers
+```
+```
+docker image rm <id image> 
+```
+OU
+```
+docker image rm monimage:v1.0
+```
+```
+docker image ls
+```
+
+
+
