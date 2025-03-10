@@ -407,7 +407,7 @@ docker login -u  <users>
 ```
 Donc  </br>
 ```
-< users > : sitrakaresearchandpoc' 
+< users > : sitrakaresearchandpoc
 ```
 créer une version : 
 ```
