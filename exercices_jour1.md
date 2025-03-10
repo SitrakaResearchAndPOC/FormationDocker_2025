@@ -406,8 +406,9 @@ docker images
 docker login -u  <users> 
 ```
 Donc  </br>
-'<users> : sitrakaresearchandpoc'</br> </br>
-
+```
+< users > : sitrakaresearchandpoc' 
+```
 créer une version : 
 ```
 docker tag myalpine:v2.0 sitrakaresearchandpoc/myalpine:v2.0
