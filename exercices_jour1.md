@@ -339,7 +339,13 @@ Charger  :
 
 docker load -i <fichier.tar>
 ```
+docker pull alpine
+```
+```
 docker save -o myalpine.tar alpine:latest
+```
+```
+mkdir dtar
 ```
 ```
 tar -C dtar/ -xvf myalpine.tar
