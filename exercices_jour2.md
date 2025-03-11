@@ -141,6 +141,9 @@ mkdir -p data
 ```  
 docker run -itd --name web3 -p 8005:80 -v "$(Convert-Path './data'):/usr/share/nginx/html" nginx
 ```  
+```  
+docker rm -f web
+```  
 
 ## Exerice 3 : Persistance (docker volume)
 
