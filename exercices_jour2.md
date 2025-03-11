@@ -535,6 +535,7 @@ docker ps
 ```
 ifconfig eth0
 ```
+```
 curl <ip addr>:8080
 ```
 Tester avec firefox
