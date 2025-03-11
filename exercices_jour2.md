@@ -170,6 +170,10 @@ ls
 ```  
 cat index.html
 ```
+Sortir vers le host : 
+```
+exit
+```
 ```  
 docker volume inspect mynginx
 ```  
