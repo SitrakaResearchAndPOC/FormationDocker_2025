@@ -182,7 +182,7 @@ Le point de montage : /var/lib/docker/volumes/mynginx/_data
  sudo ls  /var/lib/docker/volumes/mynginx/_data
 ```
 ```  
-cat index.html
+cat /var/lib/docker/volumes/mynginx/_data/index.html
 ```  
 Dans le conteneur : 
 ```  
