@@ -719,6 +719,7 @@ Pas d'addresse
 ```
 docker exec -ti c3 bash
 ```
+```
 apt update
 ```
 ```
