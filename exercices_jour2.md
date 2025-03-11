@@ -144,7 +144,7 @@ docker volume ls
 ```  
 #Lancement de conteneur
 ```  
-docker run -d --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c1 nginx:latest
+docker run -itd --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c1 nginx:latest
 ```
 ```  
 docker exec -ti c1 bash
@@ -205,7 +205,7 @@ Persistance des volumes :
 docker rm -f c1
 ```
 ```
-docker run -d --hostname -v mynginx:/usr/share/nginx/html/ --name c3 nginx:latest
+docker run -d --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c3 nginx:latest
 ```
 ```
 cd /usr/share/nginx/html/
@@ -313,7 +313,7 @@ touch /data/toto
 ```
 l'exterieur du conteneur alimente les données avec bind mount 
 ```
-docker run -d --name c1 --mount type=bind,source=/data/,destination=/usr/share/nginx/html/ nginx:latest
+docker run -itd --name c1 --mount type=bind,source=/data/,destination=/usr/share/nginx/html/ nginx:latest
 ```
 ```
 docker exec -ti c1 bash
