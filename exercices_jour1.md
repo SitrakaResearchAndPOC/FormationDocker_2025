@@ -1,5 +1,14 @@
 # Exercice Jour 1 
 ## Exercice 1 : Premiers pas et installation
+* Version récente
+```  
+apt update
+```  
+```  
+apt install docker.io
+```  
+* Ancienne version
+
 Suppression de la précédente version de Docker
 ```  
 sudo apt remove docker docker-engine docker.io containerd runc
