@@ -19,10 +19,16 @@ docker inspect web
 essayer de trouver l'addresse ip sous forme de 172.x.x.x  </br>
 Tapez dans le navigateur de la machine hôte l'addresse IP suivante : </br>
 Tester sur le port 80 </br>
-127.0.0.1:80 </br>
+e 172.17.x.x:80 </br>
 Tester sur le port 8080
-127.0.0.1:8080 </br>
+e 172.17.x.x:8080 </br>
 </br>
+```  
+curl 172.17.x.x:80
+```  
+```  
+curl 172.17.x.x:80
+```  
 
 ## Exercice 2 : Persistance Volume
 ```  
