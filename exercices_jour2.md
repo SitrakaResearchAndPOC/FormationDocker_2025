@@ -736,7 +736,9 @@ pas d'ip de conteneur </br>
 ports uniques </br>
 
 ## Exerice 9 : Docker network (approfondie)
-
+* source : 
+[docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+</br>
 [dockernetwork_defaultbridge](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_defaultbridge.PNG)
 
 ```
@@ -842,7 +844,9 @@ exit
 * HOST :
 
 [dockernetwork_host](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_host.PNG)
-Redeploiement de stormbreaker en tant que host : (pas besoin d'exposition de port)
+
+</br> Redeploiement de stormbreaker en tant que host : (pas besoin d'exposition de port)
+
 ```
 docker stop stormbreaker
 ```
@@ -856,7 +860,9 @@ Pour le deploiement en VPN par exemple
 * MAC VLAN (bridge mode):
   
 [dockernetwork_macvlan](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan.png)
-thor et mjolnir en tant que MAC VLAN :
+
+</br> thor et mjolnir en tant que MAC VLAN :
+
 ```
 ifconfig eth0
 ```
@@ -887,8 +893,9 @@ ip address show
 
 * En mode promiscité :
 
-[docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+</br>
 [dockernetwork_macvlan_promuscuous](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_promiscuous.png)
+
 ```
 sudo ip link set eth0 promisc on
 ```
@@ -936,7 +943,9 @@ docker network create -d macvlan \
 macvlan30
 ```
 * IPVLAN (L2):
+
 [dockernetwork_ipvlan_l2.png](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_ipvlan_l2.png)
+
 ```
 docker network create -d ipvlan \
 --subnet 172.28.160.0/20 \
@@ -972,7 +981,9 @@ ping 172.28.160.121
 ```
 Resultats: (avec connexion)
 * IPVLAN (L3) comme un router:
+
 [dockernetwork_ipvlan_l3](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_ipvlan_l3.png)
+
 ```
 docker stop thor mjolnir
 ```
