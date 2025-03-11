@@ -1,4 +1,4 @@
-# Exercice Jour 1 
+# Exercices Jour 1 
 ## Exercice 1 : Premiers pas et installation
 * Version récente
 ```  
