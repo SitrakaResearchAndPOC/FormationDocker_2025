@@ -736,15 +736,19 @@ pas d'ip de conteneur </br>
 ports uniques </br>
 
 ## Exerice 9 : Docker network (approfondie)
+
+[dockernetwork_defaultbridge](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_defaultbridge.PNG)
+
 ```
 ip address show
 ```
 ```
 docker network ls
 ```
-```
 networktype mean driver
-```
+
+[dockernetwork_defaultbridge_allmachine](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_defaultbridge_allmachine.PNG)
+
 ```
 docker run -itd --rm --name thor busybox
 ```
@@ -792,7 +796,8 @@ docker run -itd --rm -p 80:8080 --name stormbreaker nginx
 ```
 Dans le navigateur tapez localhost:8080
 
-* Bridge : 
+* Bridge :
+[dockernetwork_userdefined_bridge](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_userdefined_bridge.PNG)
 ```
 docker network create asgard
 ```
@@ -833,7 +838,8 @@ ping odin
 exit
 ```
 
-* HOST : 
+* HOST :
+[dockernetwork_host](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_host.PNG)
 Redeploiement de stormbreaker en tant que host : (pas besoin d'exposition de port)
 ```
 docker stop stormbreaker
@@ -846,6 +852,7 @@ Pour le deploiement en VPN par exemple
 
 
 * MAC VLAN (bridge mode):
+[dockernetwork_macvlan](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan.png)
 thor et mjolnir en tant que MAC VLAN :
 ```
 ifconfig eth0
@@ -875,7 +882,9 @@ docker exec -it thor sh
 ip address show
 ```
 
-En mode promiscité : 
+* En mode promiscité :
+[docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+[dockernetwork_macvlan_promuscuous](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_promiscuous.png)
 ```
 sudo ip link set eth0 promisc on
 ```
@@ -891,7 +900,8 @@ docker exec -it mjolnir sh
 ```
 ping thor
 ```
-* MAC VLAN (802.1q mode): 
+* MAC VLAN (802.1q mode):
+[dockernetwork_macvlan_802.1q](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_802.1q.png)
 thor .20
 mjolnir .30 
 ```
@@ -917,7 +927,8 @@ docker network create -d macvlan \
 -o parent=eth0.30 \
 macvlan30
 ```
-* IPVLAN (L2): 
+* IPVLAN (L2):
+[dockernetwork_ipvlan_l2.png](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_ipvlan_l2.png)
 ```
 docker network create -d ipvlan \
 --subnet 172.28.160.0/20 \
@@ -952,7 +963,8 @@ dans windows :
 ping 172.28.160.121
 ```
 Resultats: (avec connexion)
-* IPVLAN (L3) comme un router: 
+* IPVLAN (L3) comme un router:
+[dockernetwork_ipvlan_l3](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_ipvlan_l3.png)
 ```
 docker stop thor mjolnir
 ```
