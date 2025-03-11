@@ -364,7 +364,7 @@ Pas de persistance
 ls /usr/share/nginx/html/index.html
 ```
 
-## Exerice 6 : dockers volumes (approfondies)
+## Exerice 6 : Dockerfile 
 SEQUENCE D'INSTRUCTION :  </br>
 RUN : LANCEMENT DES COMMANDES APT ...  </br>
 ENV : VARIABLE D'ENVIRONNEMENT  </br>
@@ -412,7 +412,7 @@ Simplifier la suppression d'image par rmi
 docker rmi monimage:v1.0
 ```
 
-TP8 : layers en docker
+## Exerice 7 : Dockerfile(approfondies)
 deux types de couches 
 + lecture seule
 + lecture - ecriture
@@ -475,4 +475,534 @@ D : Drop  </br>
 ```
 docker commit -m "creatin de nouvelle image " test monimage:v1.11
 ```
+## Exerice 8 : Docker network (introduction)
+Réseaux avec docker est nommé driver </br>
+Types : bridge, host, none , overlay, macvlan </br>
+docker0 : 172.17.0.1 (configurable) 
+```
+apt update 
+```
+```
+apt install net-tools
+```
+```
+ifconfig
+```
+OU 
+```
+ip a
+```
+```
+docker network ls
+```
+capturer l'id de bridge </br>
+docker inspect <id de bridge>  </br>
+Retrouver 172.17.0.1 qui est l'adrresse IP par defaut de docker0
+```
+ifconfig docker0
+```
+```
+docker run --name c1 -d debian sleep infinity
+```
+```
+docker ps
+```
+```
+docker exec -ti c1 bash
+```
+```
+apt update
+```
+```
+apt install net-tools iputils-ping
+```
+```
+ifconfig
+```
+à l'exterieur de conteneur : 
+```
+ping 172.17.0.1
+```
+```
+ping 8.8.8.8
+```
+```
+docker run -d --name c1 -p 8080:80 nginx
+```
+```
+docker ps
+```
+```
+ifconfig eth0
+```
+curl <ip addr>:8080
+```
+Tester avec firefox
+```
+docker run -d --name c2 -P nginx
+```
+```
+docker ps
+```
+regarder le port concerné <port concerné>
+```
+curl <ip_addr>:<port concerné>
+```
+-P : exposition de port qui va être utilisé pour le publish all </br>
+-p : publication de port </br>
+```
+docker run -d --name  c3 --expose 8080 nginx
+```
+```
+docker ps 
+```
+declaration de port, virgule et non flêche
+```
+docker inspect c3
+```
+OU 
+```
+docker network ls
+```
+```
+docker network inspect <id de bridge>
+```
+```
+curl  <ip_addr c2>:8080
+```
+```
+curl  <ip_addr c3>:8080
+```
+c'est juste une exposition (déclaration de port) et non une publication  </br>
+Pas d'écoute
 
+## Exerice 9 : Docker network (service dns)
+Les conteneurs n'ont pas des addresses ip statique  </br>
+La destruction puis la recréation d'un conteneur ne donne pas une même addresse  </br>
+```
+docker run -d --name c1 nginx:latest
+```
+```
+docker inspect c1
+```
+```
+docker stop c1
+```
+```
+docker inspect c1
+```
+Pas d'addresse
+```
+docker inspect c1 | grep IPAddress
+```
+```
+docker run -d --name c2 nginx:latest
+```
+```
+docker ps -a
+```
+```
+docker inspect c2
+```
+c'est lui qui va prendre l'adresse IP
+```
+docker start c1
+```
+```
+docker inspect c1
+```
+```
+docker network ls
+```
+```
+docker network create --driver=bridge --subnet=192.168.0.0/24 sitrakanet0
+```
+```
+docker network ls
+```
+```
+docker network inspect sitrakanet0
+```
+Créeons deux conteneurs :
+```
+docker run -d --name c1 --network sitrakanet0 nginx:latest
+```
+```
+docker run -d --name c2 --network sitrakanet0 nginx:latest
+```
+```
+docker ps
+```
+```
+docker exec -ti c2 bash
+```
+```
+apt update 
+```
+```
+apt install iputils-ping
+```
+```
+ping c1
+```
+```
+exit
+```
+reessayez avec docker0
+```
+docker rm -f c1 c2
+```
+```
+docker run -d --name c1  nginx:latest
+```
+```
+docker run -d --name c2  nginx:latest
+```
+```
+docker exec -ti c2 bash
+```
+```
+apt update 
+```
+```
+apt install iputils-ping  net-tools
+```
+```
+ping c1
+```
+```
+ifconfig
+```
+```
+exit
+```
+avant c'est utilisation link, aujourd'hui c'est docker connect
+```
+docker network connect sitrakanet0 c1
+```
+```
+docker network connect sitrakanet0 c2
+```
+```
+docker inspect c1
+```
+verifie l'addresse de c1
+```
+docker inspect c2
+```
+verifie l'addresse de c2
+```
+docker exec -ti c2 bash
+```
+```
+ifconfig
+```
+```
+ping c1
+```
+Les drivers de types host :
+```
+docker run -d --name c3 --network host nginx:latest
+```
+```
+docker ps
+```
+```
+curl 127.0.0.1
+```
+le nginx reponds sans mapping???
+```
+docker inspect c3
+```
+Pas d'addresse 
+```
+docker exec -ti c3 bash
+```
+apt update
+```
+```
+apt install  net-tools
+```
+Sortir vers l'exterieur :
+```
+exit
+```
+```
+ip a
+```
+avec le mode host : </br>
+Pas d'isolation réseau </br>
+pas d'ip de conteneur </br>
+ports uniques </br>
+
+## Exerice 9 : Docker network (approfondie)
+```
+ip address show
+```
+```
+docker network ls
+```
+```
+networktype mean driver
+```
+```
+docker run -itd --rm --name thor busybox
+```
+```
+docker run -itd --rm --name mjolnir busybox
+```
+```
+docker run -itd --rm --name stormbreaker nginx
+```
+```
+docker ps
+```
+connection par docker0 par defaut
+```
+ip address show
+```
+```
+bridge link
+```
+```
+docker inspect bridge
+```
+```
+docker exec -it thor sh
+```
+```
+ip addr
+```
+```
+ping other_ip_addrr
+```
+```
+ping 8.8.8.8
+```
+```
+ip route  
+```
+(avec nat)
+Exposition de port 80 dans stormbreaker : 
+```
+docker stop stormbreaker
+```
+```
+docker run -itd --rm -p 80:8080 --name stormbreaker nginx
+```
+Dans le navigateur tapez localhost:8080
+
+* Bridge : 
+```
+docker network create asgard
+```
+```
+docker network ls
+```
+```
+docker run -itd --rm --network asgard --name loki busybox
+```
+```
+docker run -itd --rm --network asgard --name odin busybox
+```
+```
+ip address show
+```
+```
+bridge link
+```
+```
+sudo docker inspect asgard
+```
+```
+docker0 et asgard sont isolés : 
+```
+```
+docker exec -it thor sh
+```
+```
+ping addr_loki ou addr_odin
+```
+```
+sudo docker exec -it loki sh
+```
+```
+ping odin 
+```
+```
+exit
+```
+
+* HOST : 
+Redeploiement de stormbreaker en tant que host : (pas besoin d'exposition de port)
+```
+docker stop stormbreaker
+```
+```
+docker run -itd --rm --network host --name stormbreaker nginx 
+```
+```
+stormbreaker devient host </br>
+Pour le deploiement en VPN par exemple  
+
+
+* MAC VLAN (bridge mode):
+thor et mjolnir en tant que MAC VLAN :
+```
+ifconfig eth0
+```
+```
+docker stop thor mjolnir
+```
+```
+docker network create -d macvlan \
+--subnet 172.28.160.0/20 \
+--gateway 172.28.160.1 \
+-o parent=eth0 \
+newasgard
+```
+```
+docker network ls
+```
+```
+docker run -itd --rm --network newasgard \
+--ip 172.28.160.121 \
+--name thor busybox
+```
+```
+docker exec -it thor sh
+```
+```
+ip address show
+```
+
+En mode promiscité : 
+```
+sudo ip link set eth0 promisc on
+```
+Refaire le deploiement avec mjolnir : 
+```
+docker run -itd --rm --network newasgard \
+--ip 172.28.160.122 \
+--name mjolnir busybox
+```
+```
+docker exec -it mjolnir sh
+```
+```
+ping thor
+```
+* MAC VLAN (802.1q mode): 
+thor .20
+mjolnir .30 
+```
+docker stop thor mjolnir
+```
+```
+docker network rm newasgard
+```
+```
+docker network create -d macvlan \
+--subnet 172.28.160.0/20 \
+--gateway 172.28.160.1 \
+-o parent=eth0.20 \
+macvlan20
+```
+```
+ip address show
+```
+```
+docker network create -d macvlan \
+--subnet 172.28.160.0/20 \
+--gateway 172.28.160.1 \
+-o parent=eth0.30 \
+macvlan30
+```
+* IPVLAN (L2): 
+```
+docker network create -d ipvlan \
+--subnet 172.28.160.0/20 \
+--gateway 172.28.160.1 \
+-o parent=eth0 \
+newasgard
+```
+```
+docker network inspect
+```
+```
+docker run -itd --rm --network newasgard \
+--ip 172.28.160.121 \
+--name thor busybox
+```
+```
+docker exec -it thor sh
+```
+```
+ping 172.28.160.1
+```
+Faire dans Linux et regarde le MAC : 
+```
+ip address show
+```
+```
+dans windows ; verifie l'adresse MAC de l'adress IP (identique) : 
+```
+arp -a
+```
+dans windows : 
+```
+ping 172.28.160.121
+```
+Resultats: (avec connexion)
+* IPVLAN (L3) comme un router: 
+```
+docker stop thor mjolnir
+```
+```
+docker network rm newasgard
+```
+``` 
+docker network create -d ipvlan \
+--subnet 192.168.94.0/24 \
+-o parent=eth0 -o ipvlan_mode=l3 \
+--subnet 192.168.95.0/24 \
+-o parent=eth0 -o ipvlan_mode=l3 \
+newasgard
+```
+Il est possible de ne pas specifier une addresse pour mode L3 :
+```
+docker run -itd --rm --network newasgard \
+--ip 192.168.94.7 --name thor busybox 
+```
+```
+docker run -itd --rm --network newasgard \
+--ip 192.168.94.8 --name mjolnir busybox 
+```
+```
+docker run -itd --rm --network newasgard \
+--ip 192.168.95.7 --name loki busybox 
+```
+```
+docker run -itd --rm --network newasgard \
+--ip 192.168.95.8 --name odin busybox 
+```
+```
+docker inspect newasgard
+```
+```
+docker exec -it thor sh
+```
+```
+ping google.com
+```
+(reseau isolé donc pas d'interconnexion)
+```
+ip route
+```
+```
+ping mjolnir
+```
+```
+ping loki
+```
+En ajoutant la table de routage du routeur et peut sortir vers internet
