@@ -442,7 +442,7 @@ RUN apt-get install -y --no-install-recommends nano
 ```
 il y aura des couches pour chaques 
 ```
-docker build -t monimage:v1.1
+docker build -t monimage:v1.1 .
 ```
 ```
 docker history monimage:v1.1
