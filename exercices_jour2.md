@@ -24,7 +24,7 @@ Tester sur le port 8080
 e 172.17.x.x:8080 </br>
 </br>
 ```  
-curl 172.17.x.x:80
+curl 172.17.x.x:8080
 ```  
 ```  
 curl 172.17.x.x:80
