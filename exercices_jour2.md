@@ -1,5 +1,7 @@
 # Exercices Jour 2
 ## Exercice 1 : NGINX
+* Créer un serveur nginx avec une exposition de port
+* Tester les ports de la partie host ou partie conteneur
 Suppression de la précédente version de Docker  </br>
 Telechargeons une image nginx puis utilisons la redirection de port par l'option -p </br>
 Testons le serveur </br>
@@ -149,9 +151,12 @@ docker rm -f web
 * Créer un volume mynginx
 * créer un conteneur c1 nginx comme volume mynginx
 * Verifier la persistance
-* crérer un conteneur c2 comme volume mynginx
+* créer un conteneur c2 comme volume mynginx
 * changer les données dans index.html (verifier persistance)
-* 
+* créer un conteneur c3 comme volume mynginx
+* verifier persistance
+
+
 #Créer un volume
 ```  
 docker volume ls
@@ -351,6 +356,9 @@ rm -rf /data2
 * volume docker (Prendre l'image pour alimenter l'exterieur)
 * tmpfs
 ```
+rm -rf /data
+```
+```
 mkdir /data
 ```
 ```
@@ -408,6 +416,10 @@ echo toto > /usr/share/nginx/html/index.html
 cat /usr/share/nginx/html/index.html
 ```
 ```
+exit
+```
+
+```
 docker rm -f c3
 ```
 ```
@@ -416,9 +428,9 @@ docker run -d --name c3 --mount  type=tmpfs,destination=/usr/share/nginx/html ng
 ```
 docker exec -ti c3 bash
 ```
-Pas de persistance
+Pas de persistance : Pas de index.html
 ```
-ls /usr/share/nginx/html/index.html
+ls /usr/share/nginx/html/
 ```
 
 ## Exerice 6 : Dockerfile 
