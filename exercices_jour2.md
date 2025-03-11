@@ -943,7 +943,6 @@ Faire dans Linux et regarde le MAC :
 ```
 ip address show
 ```
-```
 dans windows ; verifie l'adresse MAC de l'adress IP (identique) : 
 ```
 arp -a
