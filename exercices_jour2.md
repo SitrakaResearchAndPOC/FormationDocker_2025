@@ -2,6 +2,7 @@
 ## Exercice 1 : NGINX
 * Créer un serveur nginx avec une exposition de port
 * Tester les ports de la partie host ou partie conteneur
+  
 Suppression de la précédente version de Docker  </br>
 Telechargeons une image nginx puis utilisons la redirection de port par l'option -p </br>
 Testons le serveur </br>
@@ -155,7 +156,6 @@ docker rm -f web
 * changer les données dans index.html (verifier persistance)
 * créer un conteneur c3 comme volume mynginx
 * verifier persistance
-
 
 #Créer un volume
 ```  
