@@ -43,7 +43,7 @@ docker ps
 verifie avec les navigateurs </br>
 </br>
 ```  
-docker exe -ti web sh
+docker exec -ti web sh
 ```  
 Installer vim ou nano selon votre choix : 
 
@@ -116,6 +116,14 @@ docker ps -a
 ``` 
 ```  
 docker run -tid -p 8080:80 -v /srv/data/nginx/:/usr/share/nginx/html --name web nginx:latest
+```  
+Erreur forbiden </br>
+va dans host </br>
+ajouter du code html et fichier index.html </br>
+* Pour windows :
+Lancer dockerdesktop
+```  
+docker run -itd --name web3 -p 8005:80 -v "$(Convert-Path './data'):/usr/share/nginx/html" nginx
 ```  
 
 ## Exerice 3 : Persistance (docker volume)
