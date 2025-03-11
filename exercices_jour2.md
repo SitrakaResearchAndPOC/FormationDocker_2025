@@ -745,7 +745,7 @@ ip address show
 ```
 docker network ls
 ```
-networktype mean driver
+networktype mean driver </br>
 
 [dockernetwork_defaultbridge_allmachine](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_defaultbridge_allmachine.PNG)
 
@@ -797,6 +797,7 @@ docker run -itd --rm -p 80:8080 --name stormbreaker nginx
 Dans le navigateur tapez localhost:8080
 
 * Bridge :
+
 [dockernetwork_userdefined_bridge](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_userdefined_bridge.PNG)
 ```
 docker network create asgard
@@ -839,6 +840,7 @@ exit
 ```
 
 * HOST :
+
 [dockernetwork_host](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_host.PNG)
 Redeploiement de stormbreaker en tant que host : (pas besoin d'exposition de port)
 ```
@@ -852,6 +854,7 @@ Pour le deploiement en VPN par exemple
 
 
 * MAC VLAN (bridge mode):
+  
 [dockernetwork_macvlan](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan.png)
 thor et mjolnir en tant que MAC VLAN :
 ```
@@ -883,6 +886,7 @@ ip address show
 ```
 
 * En mode promiscité :
+
 [docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
 [dockernetwork_macvlan_promuscuous](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_promiscuous.png)
 ```
@@ -901,10 +905,13 @@ docker exec -it mjolnir sh
 ping thor
 ```
 * MAC VLAN (802.1q mode):
+
 [dockernetwork_macvlan_802.1q](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_802.1q.png)
+
 </br>
 thor .20 </br>
-mjolnir .30 
+mjolnir .30 </br> 
+
 ```
 docker stop thor mjolnir
 ```
