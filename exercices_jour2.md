@@ -63,7 +63,7 @@ Personnalisons le conteneur :
 ```  
 nano /usr/share/nginx/html/index.html
 ```  
-changer "welcome nginx" avec "welcome docker sitraka"
+changer "welcome nginx" avec "welcome docker sitraka"  </br>
 Rafraichir la page </br>
 Le problème c'est que près arrêt du conteneur via docker stop :
 ```  
