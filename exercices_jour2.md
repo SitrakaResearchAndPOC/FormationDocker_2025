@@ -121,7 +121,11 @@ Erreur forbiden </br>
 va dans host </br>
 ajouter du code html et fichier index.html </br>
 * Pour windows :
-Lancer dockerdesktop
+
+Lancer dockerdesktop 
+```  
+mkdir -p data
+```  
 ```  
 docker run -itd --name web3 -p 8005:80 -v "$(Convert-Path './data'):/usr/share/nginx/html" nginx
 ```  
