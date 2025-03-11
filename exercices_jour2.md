@@ -34,6 +34,10 @@ curl 172.17.x.x:80
 ```  
 
 ## Exercice 2 : Persistance Volume
+* Tester qu'après suppression de conteneur les données disparaissent
+* Utiliser l'option -v chemin1:chemin2 pour faire du bind mount persistant
+* Tester la persistance
+
 ```  
 docker ps
 ```  
@@ -276,6 +280,9 @@ docker volume ls
 
 
 ## Exerice 4 : Débuter docker volume
+* Créer puis verifier un volume
+* Associer un volume à une conteneur
+* Suppression de volume
 ```
 docker volume
 ```
@@ -308,7 +315,7 @@ cd  /var/lib/docker/volumes/monvolume/_data
 nano index.html
 ```
 Rafraîchir la page </br>
-CHANGER PUIS RAFRAICHIR
+CHANGER PUIS RAFRAICHIR (ajouter un mot de votre choix dans html)  </br>
 Essaye de supprimer le volume 
 ```
 docker volume rm monvolume
@@ -322,7 +329,12 @@ docker volume rm monvolume
 ```
 
 ## Exerice 5 : dockers volumes (approfondies)
+
+RQ : Rappel bind mount sur linux   </br>
 Bind mount sur linux : 
+```
+rm -rf /data /data2
+```
 ```
 mkdir /data
 ```
@@ -364,7 +376,11 @@ mkdir /data
 ```
 touch /data/toto
 ```
-l'exterieur du conteneur alimente les données avec bind mount 
+BIND MOUNT :  c'est le hôte qui alimente
+```
+docker rm -f c1
+```
+
 ```
 docker run -itd --name c1 --mount type=bind,source=/data/,destination=/usr/share/nginx/html/ nginx:latest
 ```
@@ -374,6 +390,7 @@ docker exec -ti c1 bash
 ```
 ls /usr/share/nginx/html
 ```
+CONCLUSION : On voit toto, un donnée de l'exterieur
 ```
 exit
 ```
@@ -387,10 +404,13 @@ docker inspect --format "{{.Mounts}}" c1
 ```
 l'interieur alimente les données avec volume
 ```
-docker volume create mynginx
+docker volume create mynginx2
 ```
 ```
-docker run -d --name c2 --mount type=volume,src=mynginx,destination=/usr/share/nginx/html nginx:latest
+docker rm -f c2
+```
+```
+docker run -d --name c2 --mount type=volume,src=mynginx2,destination=/usr/share/nginx/html nginx:latest
 ```
 ```
 docker exec -ti c2 bash
@@ -398,10 +418,37 @@ docker exec -ti c2 bash
 ```
 cat /usr/share/nginx/html/index.html
 ```
-La source alimente
+Conclusion : le conteneur alimente les données
 ```
 exit
 ```
+Testons avec un point de montage ayant des données 
+```
+docker rm -f c2
+```
+```
+docker volume create nginx3
+```
+```
+cd /var/lib/docker/volumes/nginx3/_data
+```
+```
+touch sitraka
+```
+```
+touch sitraka2
+```
+```
+docker run -d --name c2 --mount type=volume,src=mynginx3,destination=/usr/share/nginx/html nginx:latest
+```
+```
+docker exec -ti c2 bash
+```
+```
+ls /usr/share/nginx/html/
+```
+Conclusion : les données de conteneurs alimente les données
+
 tmpfs : sans persistance
 ```
 docker run -d --name c3 --mount  type=tmpfs,destination=/usr/share/nginx/html nginx:latest
@@ -418,7 +465,6 @@ cat /usr/share/nginx/html/index.html
 ```
 exit
 ```
-
 ```
 docker rm -f c3
 ```
@@ -545,6 +591,8 @@ D : Drop  </br>
 docker commit -m "creatin de nouvelle image " test monimage:v1.11
 ```
 ## Exerice 8 : Docker network (introduction)
+* Tester interconnexion avec Doker0 bridge
+* Tester les options -p (avec publication de port) -P(avec publication non précise de port) --expose(sans publication juste déclaration de port)
 Réseaux avec docker est nommé driver </br>
 Types : bridge, host, none , overlay, macvlan </br>
 docker0 : 172.17.0.1 (configurable) 
@@ -571,6 +619,9 @@ Retrouver 172.17.0.1 qui est l'adrresse IP par defaut de docker0
 ifconfig docker0
 ```
 ```
+docker rm -f c1
+```
+```
 docker run --name c1 -d debian sleep infinity
 ```
 ```
@@ -588,12 +639,27 @@ apt install net-tools iputils-ping
 ```
 ifconfig
 ```
-à l'exterieur de conteneur : 
+à l'interieur de conteneur (hôte) pour tester que le docker0 est connecté à l'hôte :
 ```
 ping 172.17.0.1
 ```
 ```
 ping 8.8.8.8
+```
+```
+exit
+```
+
+à l'exterieur de conteneur (hôte) pour tester que le docker0 est connecté à l'hôte :
+
+```
+ping 172.17.0.1
+```
+```
+ping 8.8.8.8
+```
+```
+docker rm -f c1
 ```
 ```
 docker run -d --name c1 -p 8080:80 nginx
@@ -607,9 +673,15 @@ ifconfig eth0
 ```
 curl <ip addr>:8080
 ```
-Tester avec firefox
+RAFRAICHIR en testant avec firefox 
+```
+docker rm -f c2
+```
 ```
 docker run -d --name c2 -P nginx
+```
+```
+ifconfig eth0
 ```
 ```
 docker ps
@@ -638,17 +710,29 @@ docker network ls
 docker network inspect <id de bridge>
 ```
 ```
-curl  <ip_addr c2>:8080
+docker inspect c2
 ```
 ```
-curl  <ip_addr c3>:8080
+curl  <ip_addr c2>:80
+```
+```
+docker inspect c3
+```
+```
+curl  <ip_addr c3>:80
 ```
 c'est juste une exposition (déclaration de port) et non une publication  </br>
 Pas d'écoute
 
 ## Exerice 9 : Docker network (service dns)
+* Verifier qu'une adresse IP n'est pas propre à un conteneur
+* Utiliser un dns pour verifier la connexion entre conteneur
+
 Les conteneurs n'ont pas des addresses ip statique  </br>
 La destruction puis la recréation d'un conteneur ne donne pas une même addresse  </br>
+```
+docker rm -f c1
+```
 ```
 docker run -d --name c1 nginx:latest
 ```
@@ -664,6 +748,9 @@ docker inspect c1
 Pas d'addresse
 ```
 docker inspect c1 | grep IPAddress
+```
+```
+docker rm -f c2
 ```
 ```
 docker run -d --name c2 nginx:latest
@@ -695,7 +782,13 @@ docker network inspect sitrakanet0
 ```
 Créeons deux conteneurs :
 ```
+docker rm -f c1
+```
+```
 docker run -d --name c1 --network sitrakanet0 nginx:latest
+```
+```
+docker rm -f c2
 ```
 ```
 docker run -d --name c2 --network sitrakanet0 nginx:latest
@@ -740,6 +833,7 @@ apt install iputils-ping  net-tools
 ```
 ping c1
 ```
+c'est normal qu'il n'y a pas interconnexion (pas de dns car default bridge)
 ```
 ifconfig
 ```
@@ -770,7 +864,13 @@ ifconfig
 ```
 ping c1
 ```
+```
+exit
+```
 Les drivers de types host :
+```
+docker rm -f c3
+```
 ```
 docker run -d --name c3 --network host nginx:latest
 ```
@@ -794,13 +894,19 @@ apt update
 ```
 apt install  net-tools
 ```
+A l'interieur
+```
+ifconfig
+```
+
 Sortir vers l'exterieur :
 ```
 exit
 ```
 ```
-ip a
+ifconfig
 ```
+Conclusion : les configurations interieures et exterieures sont identiques en mode host
 avec le mode host : </br>
 Pas d'isolation réseau </br>
 pas d'ip de conteneur </br>
