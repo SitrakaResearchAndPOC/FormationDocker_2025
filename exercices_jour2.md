@@ -1,6 +1,6 @@
 # Exercices Jour 2
 ## Exercice 1 : NGINX
-Suppression de la précédente version de Docker
+Suppression de la précédente version de Docker  </br>
 Telechargeons une image nginx puis utilisons la redirection de port par l'option -p </br>
 Testons le serveur </br>
 ```  
