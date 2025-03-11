@@ -146,7 +146,12 @@ docker rm -f web
 ```  
 
 ## Exerice 3 : Persistance (docker volume)
-
+* Créer un volume mynginx
+* créer un conteneur c1 nginx comme volume mynginx
+* Verifier la persistance
+* crérer un conteneur c2 comme volume mynginx
+* changer les données dans index.html (verifier persistance)
+* 
 #Créer un volume
 ```  
 docker volume ls
@@ -173,9 +178,14 @@ cd /usr/share/nginx/html/
 ```  
 ls
 ```
+```
+echo "twitwi" > index.html
+```
 ```  
 cat index.html
 ```
+RAFRAICHIR LA PAGE -> affichage twitwi
+
 Sortir vers le host : 
 ```
 exit
@@ -197,26 +207,31 @@ docker exec -ti c1 bash
 ```  
 echo toto > /usr/share/nginx/html/index.html
 ```
-ou bien à l'interieur : </br>
-Créons un conteneur sur le même volume </br>
-Supprimer des volumes
+RAFRAICHIR LA PAGE -> affichage toto
 ```
-docker volume rm mynginx
+exit
 ```
+Créons un autre conteneur DEBIAN pour voir l'interaction avec le même volume </br>
+
 ```
 docker run -ti --name c2 --rm -v mynginx:/data debian:latest bash
 ```
 ```
 ls /data
 ```
-on voit index.html
+on voit index.html dans /data (ancien données de docker volumes)
 ```
-cat index.html
+cat /data/index.html
 ```
-```
-echo titi > index.html
+AFFICHAGE -> toto
+``` 
+echo titi > /data/index.html
 ```
 revoie dans le contenteur c1, c'est changé automatiquement</br>
+RAFRAICHIR -> titi
+```
+exit
+```
 Suppression de volume
 ```
 docker volume rm mynginx
@@ -230,19 +245,26 @@ docker rm -f c1
 docker run -d --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c3 nginx:latest
 ```
 ```
+docker exec -it c3 bash
+```
+```
 cd /usr/share/nginx/html/
 ```
 ```
 cat index.html
 ```
 c'est encore titi
+RAFRAICHIR -> titi
+```
+exit
+```
 ```
 docker rm -f c3
 ```
 ```
 docker volume rm mynginx
 ```
-Question : Pourquoi on n'a pas supprimé le conteneur c2 ????
+Question : Pourquoi on n'a pas supprimé le conteneur c2 càd on n'a pas fait docker rm -rf c3 ????
 ```
 docker volume ls
 ```
@@ -267,7 +289,7 @@ docker volume inspect monvolume
 Vérifier ou se trouve le mountpoint : /var/lib/docker/volumes/monvolume/_data </br>
 Pour utiliser volume, il faut l'option --mount
 ```
-docker run -tid --name web -p 8080:80 --mount source=monvolume,target=/usr/share/nginx/html
+docker run -tid --name web -p 8080:80 --mount source=monvolume,target=/usr/share/nginx/html nginx
 ```
 regarder le point de montage
 ```
@@ -281,6 +303,7 @@ cd  /var/lib/docker/volumes/monvolume/_data
 nano index.html
 ```
 Rafraîchir la page </br>
+CHANGER PUIS RAFRAICHIR
 Essaye de supprimer le volume 
 ```
 docker volume rm monvolume
