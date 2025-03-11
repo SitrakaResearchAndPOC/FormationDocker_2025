@@ -123,8 +123,16 @@ docker ps -a
 ```  
 docker run -tid -p 8080:80 -v /srv/data/nginx/:/usr/share/nginx/html --name web nginx:latest
 ```  
-Erreur forbiden </br>
+
+Rafraichier le page web pour avoir une Erreur forbiden </br>
+```  
+exit
+```  
 va dans host </br>
+```  
+cd /srv/data/nginx/
+```  
+
 ajouter du code html et fichier index.html </br>
 * Pour windows :
 
