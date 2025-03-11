@@ -738,7 +738,7 @@ ports uniques </br>
 ## Exerice 9 : Docker network (approfondie)
 * source : 
 [docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
-</br>
+* bridge par defaut : 
 [dockernetwork_defaultbridge](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_defaultbridge.PNG)
 
 ```
@@ -893,7 +893,6 @@ ip address show
 
 * En mode promiscité :
 
-</br>
 [dockernetwork_macvlan_promuscuous](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/dockernetwork/dockernetwork_macvlan_promiscuous.png)
 
 ```
