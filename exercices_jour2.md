@@ -245,7 +245,7 @@ docker volume inspect monvolume
 Vérifier ou se trouve le mountpoint : /var/lib/docker/volumes/monvolume/_data </br>
 Pour utiliser volume, il faut l'option --mount
 ```
-docker run -tid --name web -p 8080:80 --mount source=monvolume,target=usr/share/nginx/html
+docker run -tid --name web -p 8080:80 --mount source=monvolume,target=/usr/share/nginx/html
 ```
 regarder le point de montage
 ```
