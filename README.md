@@ -15,6 +15,6 @@
 
 * Jour 3
 
-[lien_slide_jour2](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/Docker%20Jours%203.pptx)
+[lien_slide_jour3](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/Docker%20Jours%203.pptx)
 </br> 
-[exercices_jour2](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/exercices_jour2.md)
+[exercices_jour3](https://github.com/SitrakaResearchAndPOC/FormationDocker_2025/blob/main/exercices_jour3.pptx)
