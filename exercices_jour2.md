@@ -156,7 +156,10 @@ docker volume ls
 ```  
 #Lancement de conteneur
 ```  
-docker run -itd --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c1 nginx:latest
+docker rm -f c1
+```  
+```  
+docker run -itd -p 8080:80 --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c1 nginx:latest
 ```
 ```  
 docker exec -ti c1 bash
