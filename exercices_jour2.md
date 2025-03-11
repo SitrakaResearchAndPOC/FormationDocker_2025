@@ -335,7 +335,6 @@ cat /usr/share/nginx/html/index.html
 ```
 La source alimente
 ```
-```
 exit
 ```
 tmpfs : sans persistance
