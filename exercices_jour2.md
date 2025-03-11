@@ -115,7 +115,7 @@ hello sitraka
 ``` 
 Suppression de conteneur : 
 ``` 
-docker rm -f
+docker rm -f web
 ``` 
 ``` 
 docker ps -a
