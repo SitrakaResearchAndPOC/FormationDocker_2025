@@ -1036,7 +1036,7 @@ FROM debian:latest
 RUN apt-get update
 RUN apt-get -y install iputils-ping
 ENTRYPOINT ["/bin/ping"]
-CMD ["localhost", " -c", "2"]
+CMD ["localhost", "-c", "2"]
 ```
 Tapez ctrl+x puis y -> entrer
 ```
