@@ -65,7 +65,6 @@ docker-compose down
 ```
 cd ..
 ```
-# Exercices 2 : 
 ```
 mkdir prog2
 ```
