@@ -961,6 +961,7 @@ WORKDIR /home/docker
 ```
 Tapez ctrl+x puis y -> entrer
 * création du code html
+
 ```
 nano index.html
 ```
@@ -974,6 +975,7 @@ nano index.html
 ```
 Tapez ctrl+x puis y -> entrer
 * création de fichier de configuration default de nginx
+
 ```
 nano default
 ```
@@ -994,6 +996,7 @@ server {
 ```
 Tapez ctrl+x puis y -> entrer
 * création de script de demarrage
+
 ```
 nano service_start.sh 
 ```
