@@ -195,13 +195,13 @@ docker-compose up -d
 ```
 
 ```
-docker compose ps
+docker-compose ps
 ```
 ```
 docker images
 ```
 ```
-docker compose stop
+docker-compose stop
 ```
 ```
 docker ps
@@ -210,7 +210,7 @@ docker ps
 docker ps -a
 ```
 ```
-docker compose start
+docker-compose start
 ```
 ```
 docker ps
@@ -219,6 +219,6 @@ docker ps
 docker ps -a
 ```
 ```
-docker compose down
+docker-compose down
 ```
 
