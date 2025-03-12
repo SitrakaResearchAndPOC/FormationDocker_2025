@@ -229,4 +229,14 @@ chmod 777 post-get.sh
 ```
 docker-compose down
 ```
+# Exercices 3 : (docker compose network)
+Ne changer pas de le chemin prog_exo2
+```
+mv docker-compose.yml docker-compose.yml.exo2
+```
+```
 
+```
+
+# Exercices 4 : (docker compose volumes)
+Ne changer pas de le chemin prog_exo2
