@@ -170,7 +170,7 @@ ENV FLASK_APP=app.py
 CMD flask run --host=0.0.0.0 --port 80
 ```
 Tapez ctrl+x puis yes puis entrée
-```
+
 * post-get.sh
 ```
 nano post-get.sh
