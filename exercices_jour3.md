@@ -39,6 +39,15 @@ Tapez ctrl+x puis yes et entrée
 docker-compose up -d
 ```
 ```
+docker images
+```
+```
+docker ps
+```
+```
+docker ps -a
+```
+```
 reboot
 ```
 ```
