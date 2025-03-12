@@ -170,13 +170,21 @@ lister les id
 ```
 docker ps -q 
 ```
-Imbrication de commande : 
+IMBRICATION DES COMMANDES POUR LA SUPPRESSION DES CONTENEURS
 ```
 docker rm -f $(docker ps -q)
 ```
 ```
 docker rm -f $(docker ps -aq)
 ```
+IMBRICATION DES COMMANDES POUR LA SUPPRESSION DES IMAGES
+```
+docker rmi -f $(docker images -q)
+```
+```
+docker rmi -f $(docker images -aq)
+```
+
 ```
 docker ps 
 ```
@@ -188,6 +196,8 @@ Entrer sur le navigateur :
 ```
 localhost:8080
 ```
+
+
 # Exercices 3 : Variables d'environnements
 Lister les images via docker image ls
 ```
@@ -257,7 +267,7 @@ docker run -tid --name testenv --hostname sitraka ubuntu:latest
 docker exec -ti testenv bash
 ```
 ```
-  hostname
+hostname
 ```
 
 # Exercice 4 : 
