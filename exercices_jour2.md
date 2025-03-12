@@ -225,6 +225,9 @@ RAFRAICHIR LA PAGE -> affichage toto
 exit
 ```
 Créons un autre conteneur DEBIAN pour voir l'interaction avec le même volume </br>
+```
+docker rm -f c2
+```
 
 ```
 docker run -ti --name c2 --rm -v mynginx:/data debian:latest bash
@@ -252,7 +255,7 @@ docker volume rm mynginx
 Erreur (en cours d'utilisation) </br>
 Persistance des volumes : 
 ```
-docker rm -f c1
+docker rm -f c3
 ```
 ```
 docker run -d --hostname myhost -v mynginx:/usr/share/nginx/html/ --name c3 nginx:latest
