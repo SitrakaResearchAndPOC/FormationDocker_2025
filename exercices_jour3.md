@@ -219,6 +219,13 @@ docker ps
 docker ps -a
 ```
 ```
+chmod 777 post-get.sh
+```
+```
+./post-get.sh
+```
+
+```
 docker-compose down
 ```
 
