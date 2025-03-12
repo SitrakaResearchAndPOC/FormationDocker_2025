@@ -54,6 +54,12 @@ reboot
 docker ps
 ```
 ```
+docker-compose ps
+```
+```
+docker-compose exec myfirstservice ps
+```
+```
 reboot
 ```
 ```
