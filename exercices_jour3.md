@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/ff6d1221-afad-49f5-917e-d2b298fe198a)# Vérification
+# Vérification
 ```
 docker compose 
 ```
