@@ -156,7 +156,7 @@ redis
 ```
 Tapez ctrl+x puis yes puis entrée
 * Dockerfile
-* 
+
 ```
 nano Dockerfile
 ```
