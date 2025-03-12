@@ -215,6 +215,13 @@ docker ps
 docker ps -a
 ```
 ```
+docker-compose ps 
+```
+```
+docker-compose ps -a
+```
+
+```
 docker-compose start
 ```
 ```
@@ -222,6 +229,12 @@ docker ps
 ```
 ```
 docker ps -a
+```
+```
+docker-compose ps 
+```
+```
+docker-compose ps -a
 ```
 ```
 chmod 777 post-get.sh
