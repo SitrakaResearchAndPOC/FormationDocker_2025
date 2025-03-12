@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/70713622-7231-4dea-bb0d-089a2da77c2a)![image](https://github.com/user-attachments/assets/d1984205-65e5-4eb8-bb05-6881c7fd43a1)![image](https://github.com/user-attachments/assets/ead3f243-99a9-4fd6-8d6f-872b97b37f1e)![image](https://github.com/user-attachments/assets/862e7e1b-6fb0-40d2-bc91-2ef3a56f7434)![image](https://github.com/user-attachments/assets/ef3af73c-8ab0-4fa8-a52f-decd1dfc41ad)![image](https://github.com/user-attachments/assets/7f2feafe-54b1-4aef-8461-ac58c74ba731)![image](https://github.com/user-attachments/assets/e9d318be-9fe1-41f3-8226-7e6eea00a055)![image](https://github.com/user-attachments/assets/94299606-7086-436b-900f-c498380bf2c9)![image](https://github.com/user-attachments/assets/e0dc6b3f-b1c8-44c7-a539-ebc5acfe87e4)# Exercices Jour 2
+![image](https://github.com/user-attachments/assets/f6e0a9d3-3051-4990-b739-e3fdc9bbaaa7)![image](https://github.com/user-attachments/assets/70713622-7231-4dea-bb0d-089a2da77c2a)![image](https://github.com/user-attachments/assets/d1984205-65e5-4eb8-bb05-6881c7fd43a1)![image](https://github.com/user-attachments/assets/ead3f243-99a9-4fd6-8d6f-872b97b37f1e)![image](https://github.com/user-attachments/assets/862e7e1b-6fb0-40d2-bc91-2ef3a56f7434)![image](https://github.com/user-attachments/assets/ef3af73c-8ab0-4fa8-a52f-decd1dfc41ad)![image](https://github.com/user-attachments/assets/7f2feafe-54b1-4aef-8461-ac58c74ba731)![image](https://github.com/user-attachments/assets/e9d318be-9fe1-41f3-8226-7e6eea00a055)![image](https://github.com/user-attachments/assets/94299606-7086-436b-900f-c498380bf2c9)![image](https://github.com/user-attachments/assets/e0dc6b3f-b1c8-44c7-a539-ebc5acfe87e4)# Exercices Jour 2
 ## Exercice 1 : NGINX
 * Créer un serveur nginx avec une exposition de port
 * Tester les ports de la partie host ou partie conteneur
@@ -935,12 +935,14 @@ docker run -itd --name nginx2 --mount type=volume,source=vivetic,target=/usr/sha
 ```
 
 ## Correction exercice 2 : dans slide : Dockerfile
+* Création de répértoire de travail
 ```
 mkdir nginx-ubuntu
 ```
 ```
 cd nginx-ubuntu
 ```
+* Création de Dockerfile
 ```
 nano Dockerfile
 ```
@@ -958,6 +960,20 @@ ENTRYPOINT /home/docker/script/service_start.sh
 WORKDIR /home/docker
 ```
 Tapez ctrl+x puis y -> entrer
+* création du code html
+```
+nano index.html
+```
+```
+<html>
+	<title>Test Dockerfile</title>
+	<body>
+		<center><b>Test Dockerfile</b></center>
+	</body>
+</html >	
+```
+Tapez ctrl+x puis y -> entrer
+* création de fichier de configuration default de nginx
 ```
 nano default
 ```
@@ -974,9 +990,10 @@ server {
 		location / {
 			try_files $uri $uri/ =404;
 		}
-	}
+}
 ```
 Tapez ctrl+x puis y -> entrer
+* création de script de demarrage
 ```
 nano service_start.sh 
 ```
