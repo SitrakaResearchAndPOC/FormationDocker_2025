@@ -1,4 +1,4 @@
-# Exercices Jour 2
+![image](https://github.com/user-attachments/assets/70713622-7231-4dea-bb0d-089a2da77c2a)![image](https://github.com/user-attachments/assets/d1984205-65e5-4eb8-bb05-6881c7fd43a1)![image](https://github.com/user-attachments/assets/ead3f243-99a9-4fd6-8d6f-872b97b37f1e)![image](https://github.com/user-attachments/assets/862e7e1b-6fb0-40d2-bc91-2ef3a56f7434)![image](https://github.com/user-attachments/assets/ef3af73c-8ab0-4fa8-a52f-decd1dfc41ad)![image](https://github.com/user-attachments/assets/7f2feafe-54b1-4aef-8461-ac58c74ba731)![image](https://github.com/user-attachments/assets/e9d318be-9fe1-41f3-8226-7e6eea00a055)![image](https://github.com/user-attachments/assets/94299606-7086-436b-900f-c498380bf2c9)![image](https://github.com/user-attachments/assets/e0dc6b3f-b1c8-44c7-a539-ebc5acfe87e4)# Exercices Jour 2
 ## Exercice 1 : NGINX
 * Créer un serveur nginx avec une exposition de port
 * Tester les ports de la partie host ou partie conteneur
@@ -920,6 +920,107 @@ Pas d'isolation réseau </br>
 pas d'ip de conteneur </br>
 ports uniques </br>
 
+## Correction exercice 1 : dans slide : Docker volume
+```
+docker volume create vivetic
+```
+```
+docker volume ls 
+```
+```
+docker volume inspect vivetic 
+```
+```
+docker run -itd --name nginx2 --mount type=volume,source=vivetic,target=/usr/share/nginx/html -p 7070:80 nginx:latest
+```
+
+## Correction exercice 2 : dans slide : Dockerfile
+```
+mkdir nginx-ubuntu
+```
+```
+cd nginx-ubuntu
+```
+```
+nano Dockerfile
+```
+```
+FROM ubuntu
+MAINTAINER Josue R <josue.ratovondrahona@esti.mg>
+
+RUN apt-get update && apt-get install nginx -y
+COPY default /etc/nginx/sites-enabled
+COPY index.html /var/www/html
+COPY service_start.sh /home/docker/script/service_start.sh
+RUN chmod 744 /home/docker/script/service_start.sh
+ENTRYPOINT /home/docker/script/service_start.sh
+    
+WORKDIR /home/docker
+```
+Tapez ctrl+x puis y -> entrer
+```
+nano default
+```
+```
+server {
+		listen 2080 default_server;
+		listen [::]:2080 default_server;
+
+		root /var/www/html;
+		index index.htm index.html;
+
+		server_name _;
+		
+		location / {
+			try_files $uri $uri/ =404;
+		}
+	}
+```
+Tapez ctrl+x puis y -> entrer
+```
+nano service_start.sh 
+```
+```
+#!/bin/bash
+echo bonjour mes amis
+service nginx start
+/bin/bash
+```
+Tapez ctrl+x puis y -> entrer
+```
+docker build -t viveticimg .
+```
+```
+docker run –it --name viveticimg1 –p 8080:2080 viveticimg
+```
+```
+cd ..
+```
+
+## Correction exercice 3 : dans slide : Dockerfile
+```
+mkdir debian-ping
+```
+```
+cd debian-ping
+```
+```
+nano Dockerfile
+```
+```
+	FROM debian:latest
+	RUN apt-get update
+	RUN apt-get -y install iputils-ping
+		ENTRYPOINT ["/bin/ping"]
+	CMD ["localhost", " -c", " 2"]
+```
+Tapez ctrl+x puis y -> entrer
+```
+docker build -t test .
+```
+```
+docker run -it test
+```
 ## Exerice 9 : Docker network (approfondie)
 * source : 
 [docker_network](https://www.youtube.com/watch?v=bKFMS5C4CG0)
