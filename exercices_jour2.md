@@ -277,6 +277,7 @@ exit
 ```
 docker rm -f c3
 ```
+docker rm -f c1
 ```
 docker volume rm mynginx
 ```
