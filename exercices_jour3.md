@@ -22,7 +22,7 @@ mkdir prog1
 cd prog1
 ```
 ```
-nano docker-compose
+nano docker-compose.yml
 ```
 ```
 version: '3'
@@ -51,9 +51,6 @@ reboot
 docker ps
 ```
 ```
-docker service ls
-```
-```
 docker-compose down
 ```
 ```
@@ -67,6 +64,9 @@ cd prog2
 ```
 
 Tester en accédant un terminal : 
+```
+nano docker-compose.yml
+```
 ```
 version: '3.8'
 
