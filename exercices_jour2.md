@@ -208,13 +208,17 @@ Le point de montage : /var/lib/docker/volumes/mynginx/_data
 ```
 ```  
 cat /var/lib/docker/volumes/mynginx/_data/index.html
-```  
+```
+```
+echo "toto" > /var/lib/docker/volumes/mynginx/_data/index.html
+```
+
 Dans le conteneur : 
 ```  
 docker exec -ti c1 bash
 ```
 ```  
-echo toto > /usr/share/nginx/html/index.html
+cat /usr/share/nginx/html/index.html
 ```
 RAFRAICHIR LA PAGE -> affichage toto
 ```
