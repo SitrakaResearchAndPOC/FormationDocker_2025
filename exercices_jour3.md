@@ -195,6 +195,7 @@ docker compose ps
 ```
 docker images
 ```
+```
 docker compose stop
 ```
 ```
