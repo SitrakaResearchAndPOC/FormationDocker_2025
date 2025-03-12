@@ -189,6 +189,10 @@ echo "Contenu de la base redis après POST"
 curl localhost:80
 ```
 Tapez ctrl+x puis yes puis entrée
+* Construction de l'image
+```
+docker-compose up -d
+```
 
 ```
 docker compose ps
@@ -218,4 +222,3 @@ docker ps -a
 docker compose down
 ```
 
-```
