@@ -1011,7 +1011,11 @@ Tapez ctrl+x puis y -> entrer
 docker build -t viveticimg .
 ```
 ```
-docker run –it --name viveticimg1 –p 8080:2080 viveticimg
+docker run -it --name viveticimg1 -p 8080:2080 viveticimg
+```
+RAFRAICHIR locahost:8080
+```
+exit
 ```
 ```
 cd ..
@@ -1028,11 +1032,11 @@ cd debian-ping
 nano Dockerfile
 ```
 ```
-	FROM debian:latest
-	RUN apt-get update
-	RUN apt-get -y install iputils-ping
-		ENTRYPOINT ["/bin/ping"]
-	CMD ["localhost", " -c", " 2"]
+FROM debian:latest
+RUN apt-get update
+RUN apt-get -y install iputils-ping
+ENTRYPOINT ["/bin/ping"]
+CMD ["localhost", " -c", "2"]
 ```
 Tapez ctrl+x puis y -> entrer
 ```
