@@ -365,10 +365,169 @@ docker-compose up -d
 docker-compose start
 ```
 ```
+docker-compose ps
+```
+```
+docker-compost stop
+```
+
+```
 docker-compose down
 ```
-Tester en tapant localhost:80 ou curl localhost:80
+Tester en tapant localhost:8888 ou curl localhost:8888
 ```
 Ajouter des erreurs sur nginx puis lancer docker-compose </br>
 Ajouter des erreurs sur le code puis lancer docker-compose </br>
 Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
+
+# Exercices 6 : web_php_mysql_nginx
+* Préparation des chemins
+```
+mkdir web_php_mysql_nginx
+```
+```
+cd web_php_mysql_nginx
+```
+```
+mkdir code
+```
+* NGINGX SEULEMENT
+* docker-compose.yml
+``` 
+nano docker-compose.yml
+```
+```
+version : '3'
+
+services:
+  nginx:
+    image: nginx:1.22-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./code:/code
+      # Ajouter dans volumes les configurations
+      - ./nginx.conf:/etc/nginx/nginx.conf
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+
+
+* tester les dossiers et fichiers
+```
+ls
+```
+```
+cat docker-compose.yml
+```
+* Création des services
+```
+docker-compose up -d
+```
+RAFRAICHIR -> localhost:8080
+
+* NGINGX SEULEMENT + CONF
+``` 
+nano docker-compose.yml
+```
+```
+version : '3'
+
+services:
+  nginx:
+    image: nginx:1.22-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./code:/code
+```
+* nginx.conf
+```
+nano nginx.conf
+```
+```
+events {}
+
+http {
+
+    server {
+
+        listen 80;
+
+        root /var/www/html;
+        index index.php;
+
+        location ~ \.php$ {
+
+            fastcgi_pass php:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+
+        }
+
+    }
+
+}
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+* le code
+```
+nano code/index.php
+```
+```
+<p> Bonjour sur mon site web </p>
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+
+
+* tester les dossiers et fichiers
+```
+ls
+```
+```
+cat docker-compose.yml
+```
+```
+cat nginx
+```
+
+```
+cat code/docker-compose.yml
+```
+
+* Création des services
+```
+docker-compose up -d
+```
+RAFRAICHIR -> localhost:8080
+
+* Vérification des donnés
+```
+cat docker-compose.yml
+```
+
+* Code
+```
+nano index.php
+```
+```
+<p> Bonjour </p>
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+
+* création et lancement de conteneur
+```
+docker-compose up -d
+```
+```
+docker-compose start
+```
+```
+docker-compose down
+```
+Tester en tapant localhost:8888 ou curl localhost:8888
+```
+Ajouter des erreurs sur nginx puis lancer docker-compose </br>
+Ajouter des erreurs sur le code puis lancer docker-compose </br>
+Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
+
