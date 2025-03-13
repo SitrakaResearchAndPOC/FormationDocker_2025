@@ -1079,3 +1079,4 @@ cat php_app/index.php
 ```
 cat nginx.conf
 ```
+EXERCICES AJOUTE docker-compose.yml
