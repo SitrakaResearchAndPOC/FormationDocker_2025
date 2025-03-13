@@ -345,7 +345,13 @@ http {
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
 * Vérification des donnés
-
+```
+cat index.php
+```
+```
+cat nginx.conf
+```
+  
 * création et lancement de conteneur
 ```
 docker-compose up -d
