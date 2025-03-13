@@ -1,6 +1,6 @@
 
 ```
-docker compose 
+docker-compose 
 ```
 ```
 docker-compose
@@ -264,7 +264,7 @@ chmod 777 post-get.sh
 ```
 docker-compose down
 ```
-# Exercices 3 : (docker compose network)
+# Exercices 3 : (docker-compose network)
 * ANALYSE DU RESEAU
 ```
 docker-compose up -d
@@ -371,17 +371,10 @@ nmap -PM -p 6379   <ip_addr_redis> 
 
 
 
-# Exercices 4 : (docker compose volumes)
+# Exercices 4 : (docker-compose volumes)
 Ne changer pas de le chemin redis_flask
 ```
 mv docker-compose.yml docker-compose.yml.redis_flask.1
-```
-Chemin du volume
-```
-mkdir /srv/redis
-```
-```
-chmod 777  /srv/redis
 ```
 ```
 nano docker-compose.yml
@@ -419,7 +412,44 @@ volumes:
       o: 'bind'
       device: '/srv/redis'
 ```
-Enregistrer en tapant ctrl+x puis yes puis entrée
+Enregistrer en tapant ctrl+x puis yes puis entrée</br> </br>
+```
+rm -f /srv/redis/*
+```
+```
+mkdir  -p /srv/redis
+```
+```
+ls /srv/redis/
+```
+```
+docker-compose up -d -build
+```
+```
+docker volume ls
+```
+```
+docker volume inspect <nom_volume>_dbdata
+```
+```
+./post-get.sh
+```
+```
+./post-get.sh
+```
+Effaçons tous les services : 
+```
+docker-compose down
+```
+```
+docker-compose up –d
+```
+```
+./post-get.sh
+```
+-- Vérifier les persistances
+
+
 * VOLUME DANS LA PARTIE CLIENT-SERVEUR
 Ne changer pas de le chemin redis_flask
 ```
@@ -464,9 +494,25 @@ volumes:
       o: 'bind'
       device: '/srv/redis'
 ```
-Enregistrer en tapant ctrl+x puis yes puis entrée
+Enregistrer en tapant ctrl+x puis yes puis entrée </br></br>
 
- 
+```
+docker-compose down
+```
+```
+docker-compose up -d build
+```
+```
+docker ps
+```
+```
+docker exec -it <nom_conteneur>  sh
+```
+```
+ls /database
+```
+-- Existence de dump.rdb
+
 
 # Exercices 5 :
 * Préparation des chemins
@@ -760,10 +806,10 @@ volumes:
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
 ```
-docker compose down
+docker-compose down
 ```
 ```
-docker compose up -d
+docker-compose up -d
 ```
 RAFRAICHIR: localhost:8081 (via interface graphique pour phpmyadmin)
 
