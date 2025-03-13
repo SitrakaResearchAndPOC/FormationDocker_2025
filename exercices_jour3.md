@@ -374,8 +374,11 @@ docker-compost stop
 ```
 docker-compose down
 ```
-Tester en tapant localhost:8888 ou curl localhost:8888  </br>
-
+Tester en tapant localhost:8888 ou curl localhost:8888  
+```
+curl localhost:8888
+```
+</br>
 Ajouter des erreurs sur nginx puis lancer docker-compose </br>
 Ajouter des erreurs sur le code puis lancer docker-compose </br>
 Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
