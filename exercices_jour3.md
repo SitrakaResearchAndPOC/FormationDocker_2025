@@ -892,7 +892,7 @@ services:
       - "8081:80"
 
 volumes:
-  dbda
+  dbdata:
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
 ```
