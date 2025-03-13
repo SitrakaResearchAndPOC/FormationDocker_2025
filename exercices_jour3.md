@@ -409,11 +409,8 @@ services:
       - "8080:80"
     volumes:
       - ./code:/code
-      # Ajouter dans volumes les configurations
-      - ./nginx.conf:/etc/nginx/nginx.conf
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
-
 
 * tester les dossiers et fichiers
 ```
@@ -427,8 +424,12 @@ cat docker-compose.yml
 docker-compose up -d
 ```
 RAFRAICHIR -> localhost:8080
+```
+curl localhost:8080
+```
 
-* NGINGX SEULEMENT + CONF
+
+* NGINGX + PHP
 ``` 
 nano docker-compose.yml
 ```
@@ -442,6 +443,8 @@ services:
       - "8080:80"
     volumes:
       - ./code:/code
+      # Ajouter dans volumes les configurations
+      - ./nginx.conf:/etc/nginx/nginx.conf
 ```
 * nginx.conf
 ```
