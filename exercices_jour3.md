@@ -575,7 +575,7 @@ docker compose down
 ```
 docker compose up -d
 ```
-RAFRAICHIR: localhost:8080
+RAFRAICHIR: localhost:8081 (via interface graphique pour phpmyadmin)
 
 * CONNEXION DB
 ```
@@ -609,7 +609,7 @@ RAFRAICHIR localhost:8080
 ```
 curl localhost:8080
 ```
-
+Apparition d'erreur sur le code connexion pdo Error: "could not find driverroot"
 * RESOLUTION D'ERREUR DE CONNEXION : DOCKER FILE
 ```
 nano docker-compose.yml
@@ -628,7 +628,8 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
  # service php aussi
   php:
-    # commenter l'image car on va utiliser Dockerfile ayant FROM  php:8.3-fpm-alpine
+    # MODIFICATION : pas tag image --> docker file	
+    # COMMENTER IMAGE REMPLACER PAR BUILD l'image car on va utiliser Dockerfile ayant FROM  php:8.3-fpm-alpine
     # image: php:8.3-fpm-alpine
     # Il faut utiliser build pour installer via Dockerfile 
     build : .
@@ -684,7 +685,7 @@ RAFRAICHIR localhost:8080
 ```
 curl localhost:8080
 ```
-
+PAS D'ERREUR 
 * DEVELOPPEMENT
 ```
 nano code/index.php
