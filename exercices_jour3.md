@@ -265,7 +265,7 @@ chmod 777 post-get.sh
 docker-compose down
 ```
 # Exercices 3 : (docker compose network)
-Ne changer pas de le chemin redis_flask
+Ne changer pas de le chemin redis_flask 
 ```
 mv docker-compose.yml docker-compose.yml.redis_flask
 ```
@@ -300,7 +300,6 @@ Enregistrer en tapant ctrl+x puis yes puis entrée
 
 
 # Exercices 4 : (docker compose volumes)
-Ne changer pas de le chemin redis_flask
 Ne changer pas de le chemin redis_flask
 ```
 mv docker-compose.yml docker-compose.yml.redis_flask.1
@@ -350,12 +349,13 @@ volumes:
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
 * VOLUME DANS LA PARTIE CLIENT-SERVEUR
+Ne changer pas de le chemin redis_flask
 ```
 mv docker-compose.yml docker-compose.yml.redis_flask.2
 ```
+```
 nano docker-compose.yml
 ```
-
 ```
 version: '3'
 services:
