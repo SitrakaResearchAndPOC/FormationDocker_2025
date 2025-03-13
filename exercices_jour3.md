@@ -103,10 +103,10 @@ exit
 ```
 # Exercices 2 :
 ```
-mkdir prog_exo2
+mkdir redis_flask
 ```
 ```
-cd prog_exo2
+cd redis_flask
 ```
 * docker-compose.yml
 ```
@@ -260,6 +260,13 @@ Ne changer pas de le chemin prog_exo2
 
 
 # Exercices 5 :
+* Préparation des chemins
+```
+mkdir web_php
+```
+```
+cd web_php
+```
 * Code
 ```
 nano index.php
