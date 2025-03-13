@@ -577,41 +577,156 @@ docker compose up -d
 ```
 RAFRAICHIR: localhost:8080
 
+* CONNEXION DB
+```
+nano code/index.php
+```
+```
+<?php
 
+echo "<p>Bonjour !</p>";
 
+$servername = "mysql";
+$username = "user";
+$password = "password";
+$dbname = "appdb";
 
+try {
 
+    $connexion = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
+} catch (PDOException $e) {
 
+    echo "Error: " . $e->getMessage();
 
+}
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+cat code/index.php
+```
+RAFRAICHIR localhost:8080
+```
+curl localhost:8080
+```
+
+* RESOLUTION D'ERREUR DE CONNEXION : DOCKER FILE
+```
+nano docker-compose.yml
+```
+```
+version : '3'
+
+services:
+  nginx:
+    image: nginx:1.22-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./code:/code
+      # Ajouter dans volumes les configurations
+      - ./nginx.conf:/etc/nginx/nginx.conf
+ # service php aussi
+  php:
+    # commenter l'image car on va utiliser Dockerfile ayant FROM  php:8.3-fpm-alpine
+    # image: php:8.3-fpm-alpine
+    # Il faut utiliser build pour installer via Dockerfile 
+    build : .
+    volumes:
+      - ./code:/code
+  #Ajouter services mysql et phpmyadmin
+  mysql:
+    image: mysql:8
+    environment:
+      # 🚨 Changer si vous utilisez cette configuration en production
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+
+volumes:
+  dbda
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+nano Dockerfile
+```
+```
+FROM php:8.3-fpm-alpine
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
 
 * Vérification des donnés
 ```
 cat docker-compose.yml
 ```
-
-* Code
 ```
-nano index.php
+cat Dockerfile
 ```
-```
-<p> Bonjour </p>
-```
-Enregistrer en tapant ctrl+x puis yes puis entrée
-
 * création et lancement de conteneur
+```
+docker-compose down
+```
 ```
 docker-compose up -d
 ```
 ```
-docker-compose start
+RAFRAICHIR localhost:8080
+```
+curl localhost:8080
+```
+
+* DEVELOPPEMENT
+```
+nano code/index.php
 ```
 ```
-docker-compose down
+<?php
+
+echo "<p>Bonjour !</p>";
+
+$servername = "mysql";
+$username = "user";
+$password = "password";
+$dbname = "appdb";
+
+try {
+
+    $connexion = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+    $sql = "CREATE TABLE IF NOT EXISTS example_table (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        fistname VARCHAR(30) NOT NULL,
+        lastname VARCHAR(30) NOT NULL
+    )";
+
+    $connexion->exec($sql);
+
+    $sql = "INSERT INTO example_table(fistname, lastname)
+            VALUE ('John', 'DAC')";
+
+    $connexion->exec($sql);
+
+
+} catch (PDOException $e) {
+
+    echo "Error: " . $e->getMessage();
+
+}
 ```
-Tester en tapant localhost:8888 ou curl localhost:8888
+Enregistrer en tapant ctrl+x puis yes puis entrée
+Rafraîchir via
 ```
-Ajouter des erreurs sur nginx puis lancer docker-compose </br>
-Ajouter des erreurs sur le code puis lancer docker-compose </br>
-Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
+curl localhsost:8080
+```
 
