@@ -272,6 +272,7 @@ Enregistrer en tapant ctrl+x puis yes puis entrée
 ``` 
 nano docker-compose.yml
 ```
+```
 version: '3'
 
 services:
