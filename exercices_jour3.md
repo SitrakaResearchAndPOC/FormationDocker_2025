@@ -321,6 +321,8 @@ Enregistrer en tapant ctrl+x puis yes puis entrée
 nano nginx.conf
 ```
 ```
+events {}
+
 http {
 
     server {
