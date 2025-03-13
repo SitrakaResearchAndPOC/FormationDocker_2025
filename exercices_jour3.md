@@ -1,4 +1,4 @@
-# Vérification
+![image](https://github.com/user-attachments/assets/4b22ebc5-f026-40b6-8a42-b17d244cbda1)# Vérification
 ```
 docker compose 
 ```
@@ -265,6 +265,26 @@ chmod 777 post-get.sh
 docker-compose down
 ```
 # Exercices 3 : (docker compose network)
+* ANALYSE DU RESEAU
+```
+docker-compose up -d
+```
+```
+docker network ls
+```
+Inspection du reseau : </br>
+docker inspect <conteneur de l’application> </br>
+-- Regarder subnet et gateway </br>
+-- Regarder les deux conteneurs </br>
+-- Pas de déclaration de réseaux (fait automatiquement) </br>
+-- L’application app.py : Juste host et non ip </br>
+```
+docker ps
+```
+```
+docker-compose ps
+```
+* AJOUT DU RESEAU
 Ne changer pas de le chemin redis_flask 
 ```
 mv docker-compose.yml docker-compose.yml.redis_flask
@@ -297,6 +317,54 @@ networks:
   frontend:
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
+* ANALYSE DU RESEAU
+```
+docker-compose up -d
+```
+```
+docker network ls
+```
+Inspection du reseau : </br>
+docker inspect <conteneur de l’application> </br>
+-- Regarder subnet et gateway </br>
+-- Regarder les deux conteneurs </br>
+-- Pas de déclaration de réseaux (fait automatiquement) </br>
+-- L’application app.py : Juste host et non ip </br>
+```
+docker ps
+```
+```
+docker-compose ps
+```
+```
+docker exec -ti <conteneur de l’application > sh
+```
+```
+ping redis
+```
+```
+apk update
+```
+```
+apk add nmap
+```
+-- port ouvert 6379
+```
+nmap  -PM -p 6379 redis
+```
+-- port fermé 80
+```
+nmap  -PM –p 80 redis
+```
+--Tout port : 
+```
+nmap -PM redis
+```
+-- A l’exterieur de docker
+```
+nmap -PM -p 6379   <ip_addr_redis> 
+```
+
 
 
 # Exercices 4 : (docker compose volumes)
