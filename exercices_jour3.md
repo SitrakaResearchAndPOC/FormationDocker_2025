@@ -365,5 +365,8 @@ docker-compose start
 ```
 docker-compose down
 ```
-
 Tester en tapant localhost:80 ou curl localhost:80
+```
+Ajouter des erreurs sur nginx puis lancer docker-compose </br>
+Ajouter des erreurs sur le code puis lancer docker-compose </br>
+Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
