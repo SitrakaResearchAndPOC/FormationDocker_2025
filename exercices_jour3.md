@@ -253,9 +253,71 @@ Ne changer pas de le chemin prog_exo2
 ```
 mv docker-compose.yml docker-compose.yml.exo2
 ```
-```
 
-```
 
 # Exercices 4 : (docker compose volumes)
 Ne changer pas de le chemin prog_exo2
+
+
+# Exercices 5 :
+* Code
+```
+nano index.php
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+<p> Bonjour </p>
+```
+* docker-compose.yml
+``` 
+nano docker-compose.yml
+```
+version: '3'
+
+services:
+  php:
+    image: php:8.3-fpm
+    volumes:
+      - .:/var/www/html
+
+  web:
+    image: nginx:latest
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8888:80"
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+* nginx.conf
+```
+nano nginx.conf
+```
+```
+http {
+
+    server {
+
+        listen 80;
+
+        root /var/www/html;
+        index index.php;
+
+        location ~ \.php$ {
+
+            fastcgi_pass php:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+
+        }
+
+    }
+
+}
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+docker compose up -d
+```
+Tester en tapant localhost:80 ou curl localhost:80
