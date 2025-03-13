@@ -728,4 +728,117 @@ Rafraîchir via
 ```
 curl localhsost:8080
 ```
+RAFRAICHIR BD : localhost:8081
+```
+cd ..
+```
 
+# Exercice 7 : web_php_node_go
+```
+mkdir web_php_node_go
+```
+```
+cd web_php_node_go
+```
+```
+mkdir go_app
+```
+```
+mkdir node_app
+```
+```
+mkdir php_app
+```
+```
+ls
+```
+* Ecriture des codes : 
+```
+nano go_app/main.go
+```
+```
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello World from Go!")
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
+}
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+nano node_app/server.js
+```
+```
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    if (req.url.startsWith('/node')) {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Hello World from Node.js!');
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found');
+    }
+});
+
+server.listen(3000, () => {
+    console.log('Node.js app running on port 3000');
+});
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+nano php_app/index.php
+```
+```
+<?php
+echo "Hello World from PHP!";
+?>
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+nano nginx.conf
+```
+```
+events {}
+
+http {
+    server {
+        listen 80;
+
+        location /node {
+            proxy_pass http://node_app:3000;
+        }
+
+        location /php {
+            proxy_pass http://php_app:8000;
+        }
+
+        location /go {
+            proxy_pass http://go_app:8080;
+        }
+    }
+}
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+* verification des données
+```
+cat go_app/main.go
+```
+```
+cat node_app/server.js
+```
+```
+cat php_app/index.php
+```
+```
+cat nginx.conf
+```
