@@ -349,6 +349,9 @@ Enregistrer en tapant ctrl+x puis yes puis entrée
 cat index.php
 ```
 ```
+cat docker-compose.yml
+```
+```
 cat nginx.conf
 ```
   
