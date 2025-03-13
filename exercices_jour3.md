@@ -451,7 +451,6 @@ services:
  # service php aussi
   php:
     # image: php:8.3-fpm-alpine
-    build: .
     volumes:
       - ./code:/code
 ```
