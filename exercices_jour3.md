@@ -316,7 +316,6 @@ chmod 777  /srv/redis
 nano docker-compose.yml
 ```
 ```
-```
 version: '3'
 services:
   app:
