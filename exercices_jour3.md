@@ -273,7 +273,9 @@ docker-compose up -d
 docker network ls
 ```
 Inspection du reseau : </br>
-docker inspect <conteneur de l’application> </br>
+```
+docker inspect <conteneur de l’application> 
+```
 -- Regarder subnet et gateway </br>
 -- Regarder les deux conteneurs </br>
 -- Pas de déclaration de réseaux (fait automatiquement) </br>
@@ -325,7 +327,9 @@ docker-compose up -d
 docker network ls
 ```
 Inspection du reseau : </br>
-docker inspect <conteneur de l’application> </br>
+```
+docker inspect <conteneur de l’application> 
+```
 -- Regarder subnet et gateway </br>
 -- Regarder les deux conteneurs </br>
 -- Pas de déclaration de réseaux (fait automatiquement) </br>
