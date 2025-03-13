@@ -450,7 +450,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
  # service php aussi
   php:
-    # image: php:8.3-fpm-alpine
+    image: php:8.3-fpm-alpine
     volumes:
       - ./code:/code
 ```
