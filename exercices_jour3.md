@@ -194,6 +194,23 @@ echo "Contenu de la base redis après POST"
 curl localhost:80
 ```
 Tapez ctrl+x puis yes puis entrée
+* Vérification
+```
+ls
+```
+```
+cat docker-compose.yml
+```
+```
+cat app.py
+```
+```
+cat requirements.txt
+```
+```
+cat post-get.sh
+```
+
 * Construction de l'image
 ```
 docker-compose up -d
@@ -220,7 +237,6 @@ docker-compose ps
 ```
 docker-compose ps -a
 ```
-
 ```
 docker-compose start
 ```
@@ -248,6 +264,9 @@ chmod 777 post-get.sh
 ```
 docker-compose down
 ```
+```
+cd ..
+```
 # Exercices 3 : (docker compose network)
 Ne changer pas de le chemin prog_exo2
 ```
@@ -271,10 +290,10 @@ cd web_php
 ```
 nano index.php
 ```
-Enregistrer en tapant ctrl+x puis yes puis entrée
 ```
 <p> Bonjour </p>
 ```
+Enregistrer en tapant ctrl+x puis yes puis entrée
 * docker-compose.yml
 ``` 
 nano docker-compose.yml
@@ -325,7 +344,17 @@ http {
 }
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
+* Vérification des donnés
+
+* création et lancement de conteneur
 ```
-docker compose up -d
+docker-compose up -d
 ```
+```
+docker-compose start
+```
+```
+docker-compose down
+```
+
 Tester en tapant localhost:80 ou curl localhost:80
