@@ -461,15 +461,16 @@ services:
 nano nginx.conf
 ```
 ```
-events {}
+events{}
 
 http {
 
     server {
 
         listen 80;
+        server_name localhost;
 
-        root /var/www/html;
+        root /code;  # Définition du dossier racine du site
         index index.php;
 
         location ~ \.php$ {
