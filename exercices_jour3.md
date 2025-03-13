@@ -427,7 +427,9 @@ RAFRAICHIR -> localhost:8080
 ```
 curl localhost:8080
 ```
-
+```
+docker ps
+```
 ```
 docker-compose down
 ```
@@ -517,6 +519,10 @@ docker-compose down
 docker-compose up -d
 ```
 RAFRAICHIR -> localhost:8080
+```
+docker ps
+```
+
 ```
 curl  localhost:8080
 ```
