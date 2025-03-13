@@ -12,7 +12,7 @@ apt update
 ```
 apt install docker-compose
 ```
-
+LE BUT SURTOUT C'EST PAS DE COPIE COLLER LE CODE DE DOCKER-COMPOSE MAIS L'ECRIRE VOUS MEME
 
 # Exercices 1 : 
 ```
