@@ -38,3 +38,4 @@ Evaluation classroom : nimcrnl
 ** [docker_swarm2](https://www.youtube.com/watch?v=fVAvGMg4ugo&pp=ygUbZWF6eXRyYWluaW5nICsgZG9ja2VyIHN3YXJt) </br>
 ** [docker_network1](https://www.youtube.com/watch?v=bKFMS5C4CG0&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_network2](https://www.youtube.com/watch?v=5grbXvV_DSk&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
+** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm)
