@@ -264,19 +264,138 @@ chmod 777 post-get.sh
 ```
 docker-compose down
 ```
-```
-cd ..
-```
 # Exercices 3 : (docker compose network)
-Ne changer pas de le chemin prog_exo2
+Ne changer pas de le chemin redis_flask
 ```
-mv docker-compose.yml docker-compose.yml.exo2
+mv docker-compose.yml docker-compose.yml.redis_flask
 ```
+```
+nano docker-compose.yml
+```
+```
+version: '3'
+services:
+  app:
+    build: .
+    image: flask-redis:1.0
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - 5000:5000
+    networks:
+      - backend
+      - frontend
+  redis:
+    image: redis:4.0.11-alpine
+    # AJOUT DE NETWORKS
+    networks:
+      - backend
+# DECLARATION DES RESAUX
+# PAS DE TITRET CAR C'EST PAS UN TABLEAU
+networks:
+  backend:
+  frontend:
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
 
 
 # Exercices 4 : (docker compose volumes)
-Ne changer pas de le chemin prog_exo2
+Ne changer pas de le chemin redis_flask
+Ne changer pas de le chemin redis_flask
+```
+mv docker-compose.yml docker-compose.yml.redis_flask.1
+```
+Chemin du volume
+```
+mkdir /srv/redis
+```
+```
+chmod 777  /srv/redis
+```
+```
+nano docker-compose.yml
+```
+```
+```
+version: '3'
+services:
+  app:
+    build: .
+    image: flask-redis:1.0
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - 5000:5000
+    networks:
+      - backend
+      - frontend
+  redis:
+    image: redis:4.0.11-alpine
+    networks:
+      - backend
+    # AJOUT DE VOLUME POUR LE SERVEUR REDIS
+    volumes:
+      - dbdata:/data
 
+networks:
+  backend:
+  frontend:
+# DECLARATION DE VOLUME
+volumes:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/srv/redis'
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+* VOLUME DANS LA PARTIE CLIENT-SERVEUR
+```
+mv docker-compose.yml docker-compose.yml.redis_flask.2
+```
+nano docker-compose.yml
+```
+
+```
+version: '3'
+services:
+  app:
+    build: .
+    image: flask-redis:1.0
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - 5000:5000
+    networks:
+      - backend
+      - frontend
+    # AJOUT D'UN VOLUME SUR LE CLIENT
+    volumes:
+      - dbdata:/database
+  redis:
+    image: redis:4.0.11-alpine
+    networks:
+      - backend
+    volumes:
+      - dbdata:/data
+
+networks:
+  backend:
+  frontend:
+
+# DECLARATION DE VOLUME
+volumes:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/srv/redis'
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+
+ 
 
 # Exercices 5 :
 * Préparation des chemins
