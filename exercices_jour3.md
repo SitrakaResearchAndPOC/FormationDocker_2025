@@ -428,6 +428,9 @@ RAFRAICHIR -> localhost:8080
 curl localhost:8080
 ```
 
+```
+docker-compose down
+```
 
 * NGINGX + PHP
 ``` 
@@ -445,6 +448,12 @@ services:
       - ./code:/code
       # Ajouter dans volumes les configurations
       - ./nginx.conf:/etc/nginx/nginx.conf
+ # service php aussi
+  php:
+    # image: php:8.3-fpm-alpine
+    build: .
+    volumes:
+      - ./code:/code
 ```
 * nginx.conf
 ```
@@ -494,18 +503,24 @@ ls
 cat docker-compose.yml
 ```
 ```
-cat nginx
+cat nginx.conf
 ```
 
 ```
-cat code/docker-compose.yml
+cat docker-compose.yml
 ```
 
 * Création des services
 ```
+docker-compose down
+```
+```
 docker-compose up -d
 ```
 RAFRAICHIR -> localhost:8080
+```
+curl  localhost:8080
+```
 
 * Vérification des donnés
 ```
