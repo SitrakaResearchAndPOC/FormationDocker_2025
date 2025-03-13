@@ -496,13 +496,12 @@ nano code/index.php
 ```
 Enregistrer en tapant ctrl+x puis yes puis entrée
 
-
 * tester les dossiers et fichiers
 ```
 ls
 ```
 ```
-cat docker-compose.yml
+cat code/index.php
 ```
 ```
 cat nginx.conf
@@ -523,10 +522,68 @@ RAFRAICHIR -> localhost:8080
 ```
 docker ps
 ```
-
 ```
 curl  localhost:8080
 ```
+* NGINX + PHP + MYSQL + PHPMYADMIN
+```
+nano docker-compose.yml
+```
+```
+version : '3'
+
+services:
+  nginx:
+    image: nginx:1.22-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./code:/code
+      # Ajouter dans volumes les configurations
+      - ./nginx.conf:/etc/nginx/nginx.conf
+ # service php aussi
+  php:
+    image: php:8.3-fpm-alpine
+    volumes:
+      - ./code:/code
+  #Ajouter services mysql et phpmyadmin
+  mysql:
+    image: mysql:8
+    environment:
+      # 🚨 Changer si vous utilisez cette configuration en production
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+
+volumes:
+  dbdata:
+```
+Enregistrer en tapant ctrl+x puis yes puis entrée
+```
+docker compose down
+```
+```
+docker compose up -d
+```
+RAFRAICHIR: localhost:8080
+
+
+
+
+
+
+
+
 
 * Vérification des donnés
 ```
