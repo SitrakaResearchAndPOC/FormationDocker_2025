@@ -34,8 +34,13 @@ Evaluation classroom : nimcrnl
 ** [base_docker2](https://www.youtube.com/playlist?list=PLpLG--nxBMd-wO_MAWh3gzqCcFh4qNMvP)  </br>
 ** [docker_compose1](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose2](https://www.youtube.com/@nicelydev) </br>
+** [docker_compose3](https://www.youtube.com/watch?v=y1QUtn_x12I) </br>
+** [docker_compose4](https://www.youtube.com/watch?v=CEuWK3Imdtg&pp=ygUMZG9ja2VyIHN3YXJt)
 ** [docker_swarm1](https://www.youtube.com/watch?v=CPS5yXzLBwQ&list=PLYXcqIV23kPnVvMDw1sGYzSBZW1RfDgkZ) </br>
 ** [docker_swarm2](https://www.youtube.com/watch?v=fVAvGMg4ugo&pp=ygUbZWF6eXRyYWluaW5nICsgZG9ja2VyIHN3YXJt) </br>
+** [docker_swarm3](https://www.youtube.com/watch?v=Xj6RrWkJCxk)  </br>
+** [docker_swarm4](https://www.youtube.com/watch?v=r_4__wmyrcw)  [docker_swarm5](https://www.youtube.com/watch?v=r_4__wmyrcw) [docker_swarm6](https://www.youtube.com/watch?v=ivEQ3rFe-sg) [docker_swarm7](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e)  </br>
 ** [docker_network1](https://www.youtube.com/watch?v=bKFMS5C4CG0&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_network2](https://www.youtube.com/watch?v=5grbXvV_DSk&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
-** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm)
+** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm) </br>
+** [docker_swarm_plaulist](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e) </br>
