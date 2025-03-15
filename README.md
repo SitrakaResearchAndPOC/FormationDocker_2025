@@ -40,6 +40,7 @@ Evaluation classroom : nimcrnl
 ** [base_docker3](https://www.youtube.com/watch?v=3aompDCIUPA) </br>
 ** [base_docker4](https://www.youtube.com/watch?v=3aompDCIUPA) </br>
 ** [base_docker5](https://www.youtube.com/watch?v=fZZwN_e3LYg&pp=ygUVZWF6eXRyYWluaW5nICsgZG9ja2Vy) </br>
+** [base_docker6](https://www.youtube.com/watch?v=jXBS9-lvyvY&t=10s&pp=ygUGZG9ja2Vy)
 ** [docker_compose1](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose2](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose3](https://www.youtube.com/watch?v=y1QUtn_x12I) </br>
@@ -53,3 +54,4 @@ Evaluation classroom : nimcrnl
 ** [docker_network2](https://www.youtube.com/watch?v=5grbXvV_DSk&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm) </br>
 ** [docker_swarm_playlist](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e) </br>
+** [docker_resume_rapide](https://www.youtube.com/watch?v=ES4BcZcsBdU)
