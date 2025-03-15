@@ -28,11 +28,12 @@
 
 Evaluation classroom : nimcrnl
 
-* Bonne pratique
-[bonne_pratique1](https://www.youtube.com/watch?v=BOrgHSF4rKQ)
-[bonne_pratique2](https://www.youtube.com/watch?v=rVJMH9iuelA&pp=ygUUYm9ubmUgcHJhdGlxdWUgeGF2a2k%3D)
+* Bonne pratique : 
 
-* Ressources
+** [bonne_pratique1](https://www.youtube.com/watch?v=BOrgHSF4rKQ)  </br>
+** [bonne_pratique2](https://www.youtube.com/watch?v=rVJMH9iuelA&pp=ygUUYm9ubmUgcHJhdGlxdWUgeGF2a2k%3D)  </br>
+
+* Ressources : 
 
 ** [base_docker1](https://www.youtube.com/playlist?list=PLn6POgpklwWq0iz59-px2z-qjDdZKEvWd) </br>
 ** [base_docker2](https://www.youtube.com/playlist?list=PLpLG--nxBMd-wO_MAWh3gzqCcFh4qNMvP)  </br>
@@ -43,7 +44,7 @@ Evaluation classroom : nimcrnl
 ** [docker_compose2](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose3](https://www.youtube.com/watch?v=y1QUtn_x12I) </br>
 ** [docker_compose4](https://www.youtube.com/watch?v=CEuWK3Imdtg&pp=ygUMZG9ja2VyIHN3YXJt) </br>
-** [docker_compose5](https://www.youtube.com/watch?v=t1zjlajR8Ck&pp=ygUVZWF6eXRyYWluaW5nICsgZG9ja2Vy)
+** [docker_compose5](https://www.youtube.com/watch?v=t1zjlajR8Ck&pp=ygUVZWF6eXRyYWluaW5nICsgZG9ja2Vy)  </br>
 ** [docker_swarm1](https://www.youtube.com/watch?v=CPS5yXzLBwQ&list=PLYXcqIV23kPnVvMDw1sGYzSBZW1RfDgkZ) </br>
 ** [docker_swarm2](https://www.youtube.com/watch?v=fVAvGMg4ugo&pp=ygUbZWF6eXRyYWluaW5nICsgZG9ja2VyIHN3YXJt) </br>
 ** [docker_swarm3](https://www.youtube.com/watch?v=Xj6RrWkJCxk)  </br>
@@ -51,4 +52,4 @@ Evaluation classroom : nimcrnl
 ** [docker_network1](https://www.youtube.com/watch?v=bKFMS5C4CG0&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_network2](https://www.youtube.com/watch?v=5grbXvV_DSk&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm) </br>
-** [docker_swarm_plaulist](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e) </br>
+** [docker_swarm_playlist](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e) </br>
