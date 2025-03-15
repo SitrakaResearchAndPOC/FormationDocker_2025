@@ -28,7 +28,7 @@
 
 Evaluation classroom : nimcrnl
 
-* Bonne pratique : 
+* Bonnes pratiques : 
 
 ** [bonne_pratique1](https://www.youtube.com/watch?v=BOrgHSF4rKQ)  </br>
 ** [bonne_pratique2](https://www.youtube.com/watch?v=rVJMH9iuelA&pp=ygUUYm9ubmUgcHJhdGlxdWUgeGF2a2k%3D)  </br>
