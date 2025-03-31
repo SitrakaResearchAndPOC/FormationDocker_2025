@@ -50,10 +50,21 @@ Evaluation classroom : nimcrnl
 ** [docker_swarm1](https://www.youtube.com/watch?v=CPS5yXzLBwQ&list=PLYXcqIV23kPnVvMDw1sGYzSBZW1RfDgkZ) </br>
 ** [docker_swarm2](https://www.youtube.com/watch?v=fVAvGMg4ugo&pp=ygUbZWF6eXRyYWluaW5nICsgZG9ja2VyIHN3YXJt) </br>
 ** [docker_swarm3](https://www.youtube.com/watch?v=Xj6RrWkJCxk)  </br>
-** [docker_swarm4](https://www.youtube.com/watch?v=r_4__wmyrcw)  [docker_swarm5](https://www.youtube.com/watch?v=r_4__wmyrcw) [docker_swarm6](https://www.youtube.com/watch?v=ivEQ3rFe-sg) [docker_swarm7](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e)  </br>
+** [docker_swarm4](https://www.youtube.com/watch?v=r_4__wmyrcw)   </br>
+** [docker_swarm5](https://www.youtube.com/watch?v=r_4__wmyrcw) </br>
+** [docker_swarm6](https://www.youtube.com/watch?v=ivEQ3rFe-sg) </br>
+** [docker_swarm7](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e)  </br>
 ** [docker_network1](https://www.youtube.com/watch?v=bKFMS5C4CG0&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_network2](https://www.youtube.com/watch?v=5grbXvV_DSk&pp=ygUOZG9ja2VyIG5ldHdvcms%3D) </br>
 ** [docker_swarm](https://www.youtube.com/@Thetips4you/search?query=docker%20swarm) </br>
 ** [docker_swarm_playlist](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e) </br>
 ** [docker_resume_rapide](https://www.youtube.com/watch?v=ES4BcZcsBdU) </br>
 ** [intro_kubernetes](https://www.youtube.com/watch?v=wzH0qIq1sjQ) </br>
+
+inpulse tv </br>
+techwale 
+https://www.youtube.com/watch?v=87vc5bFDApk&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
+https://www.youtube.com/watch?v=10DBlZJntHc&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
+https://www.youtube.com/watch?v=Te9Xit1m2IU&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
+devoxx  </br>
+https://www.youtube.com/watch?v=Zw-vNFOGwdw&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHbSBwkJvQCDtaTen9Q%3D  </br>
