@@ -1,0 +1,206 @@
+Créer un conteneur pour lancer un script bash qui affiche hello-world : 
+
+* ubuntu ou debian (options 1 : installation de nano + création du script) 
+docker pull ubuntu
+docker  create -it --name exo_bash_ubuntu ubuntu
+docker ps
+docker ps -a
+docker start exo_bash_ubuntu
+docker exec -it exo_bash_ubuntu bash
+apt update
+apt install nano 
+nano hello.bash
+#!/bin/bash
+echo "bonjour les amis"
+
+
+ctrl+X + Y entrée
+
+cat hello.bash
+
+A l'interieur : 
+bash hello.bash
+
+
+A l'exterieuer 
+exit 
+docker exec -it   exo_bash_ubuntu bash hello.bash
+
+
+Sauvegarder en tant qu'image : 
+docker commit   -m "exo_bash_ubuntu"  exo_bash_ubuntu ubuntu_exo_bash:latest
+docker images
+
+
+
+
+ubuntu ou debian (options 2 : utilisation de redirection pour créer un fichier via echo)
+docker  create -it --name exo_bash_ubuntu2 ubuntu
+docker start exo_bash_ubuntu2
+docker exec -it exo_bash_ubuntu2 bash
+
+echo '#!/bin/bash' >> hello2.bash
+echo 'echo "bonjour les amis"' >> hello2.bash
+
+
+cat hello2.bash
+
+
+
+A l'interieur : 
+bash hello2.bash
+
+
+A l'exterieuer 
+exit 
+docker exec -it   exo_bash_ubuntu2 bash hello2.bash
+
+
+
+Sauvegarder en tant qu'image : 
+docker commit   -m "exo_bash_ubuntu2"  exo_bash_ubuntu2 ubuntu_exo_bash2:latest
+docker images
+
+
+
+
+* alpine (options 3 : utilisation alpine et bash) : 
+
+docker pull alpine
+docker  create -it --name exo_bash_alpine alpine
+docker start exo_bash_alpine
+docker exec -it exo_bash_alpine sh
+apk update
+apk add bash
+
+
+echo '#!/bin/bash' >> hello2.bash
+echo 'echo "bonjour les amis"' >> hello2.bash
+
+
+cat hello2.bash
+
+
+A l'interieur
+bash hello2.bash
+
+A l'exterieur
+exit
+docker exec -it exo_bash_alpine bash hello2.bash
+
+Sauvegarder en tant qu'image : 
+docker commit   -m "exo_bash_alpine"  exo_bash_alpine exo_bash_alpine:latest
+docker images
+
+AVEC DOCKER RUN: 
+docker run -itd --name exo_bash_alpine2 alpine
+docker exec -it exo_bash_alpine2 sh
+apk update
+apk add bash
+
+
+echo '#!/bin/bash' >> hello2.bash
+echo 'echo "bonjour les amis"' >> hello2.bash
+
+cat hello2.bash
+
+A l'interieur
+bash hello2.bash
+
+A l'exterieur
+exit
+docker exec -it exo_bash_alpine2 bash hello2.bash
+
+
+* alpine (options 4 : utilisation alpine et sh) : 
+docker pull alpine
+docker  create -it --name exo_sh_alpine alpine
+docker start exo_sh_alpine
+docker exec -it exo_sh_alpine sh
+
+echo '#!/bin/sh' >> hello2.sh
+echo 'echo "bonjour les amis"' >> hello2.sh
+
+A l'interieur
+sh hello2.sh
+
+A l'exterieur
+exit
+docker exec -it exo_sh_alpine sh hello2.sh
+
+Sauvegarder en tant qu'images
+docker commit   -m "exo_sh_alpine"  exo_sh_alpine exo_sh_alpine:latest
+
+AVEC DOCKER RUN: 
+docker run -itd --name exo_sh_alpine2 alpine
+docker exec -it exo_sh_alpine2 sh
+
+echo '#!/bin/sh' >> hello2.sh
+echo 'echo "bonjour les amis"' >> hello2.sh
+
+
+cat hello2.sh
+
+A l'interieur
+sh hello2.sh
+
+A l'exterieur
+exit
+docker exec -it exo_sh_alpine2 sh hello2.sh
+
+
+
+
+Créer un conteneur pour lancer un script python qui affiche hello-world : 
+docker pull ubuntu
+docker create -it --name exo_python_ubuntu ubuntu
+docker start exo_python_ubuntu
+docker exec -it exo_python_ubuntu bash
+
+apt update
+apt install python python-is-python3
+
+echo '#!/bin/python3' >> hello.py
+echo 'print("bonjour les amis")' >> hello.py
+
+
+cat hello.py
+
+A l'interieur
+python3 hello.py
+
+
+A l'exterieur 
+exit
+docker exec -it exo_python_ubuntu python3 hello.py
+
+sauvegarder l'image :
+docker commit -m "exo python script" exo_python_ubuntu ubuntu_exo_python:latest
+docker images
+
+
+
+ALPINE : 
+docker pull alpine
+docker create -it --name exo_python_alpine alpine
+docker start exo_python_alpine
+docker exec -it exo_python_alpine sh
+apk update
+apk add --no-cache python3 
+
+echo '#!/bin/python3' >> hello.py
+echo 'print("bonjour les amis")' >> hello.py
+
+cat hello.py
+
+A l'interieur
+python3 hello.py
+
+
+A l'exterieur 
+exit
+docker exec -it exo_python_alpine python3 hello.py
+
+Sauvegarder l'images
+docker commit -m "exo python script" exo_python_alpine alpine_exo_python:latest
+docker images
