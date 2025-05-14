@@ -158,7 +158,8 @@ docker start exo_python_ubuntu
 docker exec -it exo_python_ubuntu bash
 
 apt update
-apt install python python-is-python3
+apt install python3
+apt install python-is-python3
 
 echo '#!/bin/python3' >> hello.py
 echo 'print("bonjour les amis")' >> hello.py
