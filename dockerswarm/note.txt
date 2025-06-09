@@ -62,10 +62,44 @@ docker swarm leave --force
 
 docker swarm init --advertise-addr 192.155.92.6 
 
+Configuration hostname :
+nano /etc/hosts
+changer le nom (ubuntu) --> <name_cluster>
+
+sudo hostnamectl set-hostname <name_cluster>
 
 copier dockerjoin dans dockerjoin.txt
 scp dockerjoin.txt clusterswarm2@<IP2>:/home/cluserswarm2
 scp dockerjoin.txt clusterswarm2@<IP3>:/home/cluserswarm3
+
+script trés util : 
+
+
+#!/bin/bash
+
+# Lister tous les services avec leur ID et leur nom
+docker service ls --format "{{.ID}}\t{{.Name}}" | while read service_id service_name; do
+    echo -e "\nService: $service_name (ID: $service_id)"
+    
+    # Lister les tâches en état 'running' pour chaque service
+    docker service ps $service_id --no-trunc --filter "desired-state=running" --format "{{.ID}}\t{{.Node}}\t{{.CurrentState}}" | while read task_id node_id current_state; do
+        # Récupérer le nom du nœud à partir de son ID
+        node_name=$(docker node inspect --format '{{.Description.Hostname}}' $node_id)
+        
+        # Afficher les informations sur la tâche active
+        echo -e "\tTask: $task_id | Node: $node_name (ID: $node_id) | CurrentState: $current_state"
+    done
+done
+
+
+
+
+
+POUR CHAQUE MACHINE
+faire 
+cat dockerjoin.txt
+copier coller puis
+lancer docker swarm join ...
 
 
 MACHINES 2 : 
@@ -81,7 +115,6 @@ Généré :
 docker swarm join --token SWMTKN-1-5movmh5dg8spek7eyeefnekq2ifrj6tugrxy7ef3p0r7jgrawg-dksm04815nl44d3nyyt3rlq5w 192.155.92.6:2377
 
 **************************
-
 
 
 ***************************
@@ -160,4 +193,7 @@ docker service create svc1 --contrainst engine.label==ssd nginx
 
 docker service create --replicas 10 --name web  -p 80:80 nginx
 
+
+
+docker node ps 
 
