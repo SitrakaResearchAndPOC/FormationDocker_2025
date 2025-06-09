@@ -1,0 +1,163 @@
+ubuntu22.04
+ubuntu-22-04-swarm1
+
+ssh root@192.155.92.6
+
+apt update
+
+apt-get install ca-certificates curl gnupg lsb-release -y
+apt install docker.io openssh-server
+
+systemctl start ssh
+systemctl enable ssh
+
+
+sudo hostnamectl set-hostname ubuntu-22-04-swarm1
+
+reboot 
+
+ssh root@192.155.92.6
+
+nano /etc/ssh/sshd_config
+
+ClientAliveInterval 60
+ClientAliveCountMax 3
+
+sudo systemctl reload ssh
+
+**********************************************************************
+ubuntu22.04
+ubuntu-22-04-swarm2
+
+ssh root@50.116.46.76
+
+ubuntu-22-04-swarm2
+
+sudo hostnamectl set-hostname ubuntu-22-04-swarm2
+
+
+-------------------------------------****
+ubuntu22.04
+ubuntu-22-04-swarm3
+
+ssh root@45.79.221.8
+
+
+sudo hostnamectl set-hostname ubuntu-22-04-swarm3
+
+
+
+
+MACHINES 1 : 
+
+ssh root@192.155.92.6
+ubuntu-22-04-swarm1
+
+ip a : 
+192.155.92.6
+
+docker info
+
+docker swarm leave --force
+
+docker swarm init --advertise-addr 192.155.92.6 
+
+
+copier dockerjoin dans dockerjoin.txt
+scp dockerjoin.txt clusterswarm2@<IP2>:/home/cluserswarm2
+scp dockerjoin.txt clusterswarm2@<IP3>:/home/cluserswarm3
+
+
+MACHINES 2 : 
+ubuntu22.04
+ubuntu-22-04-swarm2
+
+ssh root@192.155.92.6 
+ubuntu-22-04-swarm1
+
+ssh root@50.116.46.76
+
+Généré :  
+docker swarm join --token SWMTKN-1-5movmh5dg8spek7eyeefnekq2ifrj6tugrxy7ef3p0r7jgrawg-dksm04815nl44d3nyyt3rlq5w 192.155.92.6:2377
+
+**************************
+
+
+
+***************************
+
+sudo systemctl start ssh
+
+docker node ls
+
+docker service create --name foo alpine ping 8.8.8.8
+
+docker service ls 
+
+docker service ps foo
+
+
+docker service logs foo
+
+docker service rm foo
+
+
+docker service create --name web -p 80:80 emilevauge/whoami
+
+
+docker service ps web
+ 
+docker service rm web
+
+docker network create --driver overlay --opt encrupted exquisite
+
+docker network ls
+
+docker service create --name back --network exquisite --limit-memory 64M --reserve-memory 64M vdemeester/exquisite-words-java:v1
+
+docker service ls
+
+docker service create --name mongo --network exquisite mongo:3.3.8
+
+docker service create --name front --network exquisite -p 800:80 vdemeester/exquisite-web:v1
+
+
+
+192.155.92.6:800
+
+
+docker service scale back=15
+
+docker service ls
+
+docker service ps back
+
+
+docker service scale front=2
+
+docker service ls
+
+docker service ps front
+
+
+docker service update --update-parallelism 2 --update-delay 10s front
+
+docker service update --image vdemeester/exquisite-web:v2 front
+
+
+docker service update --update-parallelism 2 --update-delay 10s back
+
+docker service update --image vdemeester/exquisite-words-java:v2  back
+
+
+docker node update --availability drain host3
+
+---> drain, active, pause
+
+docker service create svc1 --contrainst engine.label==ssd nginx
+
+192.155.92.6:800
+
+docker service create --replicas 10 --name web  -p 80:80 nginx
+
+
