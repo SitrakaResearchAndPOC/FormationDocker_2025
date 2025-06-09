@@ -64,8 +64,8 @@ Evaluation classroom : nimcrnl
 
 inpulse tv </br>
 techwale 
-https://www.youtube.com/watch?v=87vc5bFDApk&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
-https://www.youtube.com/watch?v=10DBlZJntHc&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
-https://www.youtube.com/watch?v=Te9Xit1m2IU&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D  </br>
+[techwale1](https://www.youtube.com/watch?v=87vc5bFDApk&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
+[techwale2](https://www.youtube.com/watch?v=10DBlZJntHc&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
+[techwale3](https://www.youtube.com/watch?v=Te9Xit1m2IU&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
 devoxx  </br>
-https://www.youtube.com/watch?v=Zw-vNFOGwdw&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHbSBwkJvQCDtaTen9Q%3D  </br>
+[devoxx1](https://www.youtube.com/watch?v=Zw-vNFOGwdw&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHbSBwkJvQCDtaTen9Q%3D)  </br>
