@@ -33,6 +33,11 @@ and Tape ctrl+x and Yes for saving
 ```
 sudo hostnamectl set-hostname clusterswarm1
 ```
+Verify hostname by 
+```
+hostname
+```
+
 ## Configure hostname for clusterswarm2
 Terminal clusterswarm2
 ```
@@ -49,6 +54,9 @@ to clusterswarm2
 And Tape ctrl+x and Yes for saving
 ```
 sudo hostnamectl set-hostname clusterswarm2
+```
+```
+hostname
 ```
 
 ## Configure hostname for clusterswarm3
@@ -68,6 +76,10 @@ and tape Tape ctrl+x and Yes for saving
 ```
 sudo hostnamectl set-hostname clusterswarm3
 ```
+```
+hostname
+```
+
 ## Launching manager
 Terminal clusterswarm1
 ```
