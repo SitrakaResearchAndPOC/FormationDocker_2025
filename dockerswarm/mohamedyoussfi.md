@@ -99,11 +99,11 @@ nano dockerjoin.txt
 ```
 Past the command and Tape ctrl+x and Yes for saving
 ```
-scp dockerjoin.txt clusterswarm2@<ip_clusterswarm2>:/home/cluserswarm2
+scp dockerjoin.txt clusterswarm2@<ip_clusterswarm2>:/home/clusterswarm2
 ```
 Tape password
 ```
-scp dockerjoin.txt clusterswarm2@<ip_clusterswarm3>:/home/cluserswarm3
+scp dockerjoin.txt clusterswarm2@<ip_clusterswarm3>:/home/clusterswarm3
 ```
 Tape password
 ## Join the worker in clusterswarm2
