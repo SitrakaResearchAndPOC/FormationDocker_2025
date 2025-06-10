@@ -8,7 +8,7 @@ Terminal clusterswarm1 & clusterswarm2 & clusterswarm3
 apt update 
 ```
 ```
-apt install docker.io openssh-server scp
+apt install docker.io openssh-server
 ```
 ```
 systemctl start ssh
