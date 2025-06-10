@@ -250,7 +250,32 @@ Other options ---> drain, active, pause
 ```
 bash print_services.sh
 ```
-
+Reactivation after draining
+```
+docker node update --availability active <idhost_clusterswarm3>
+```
+```
+bash print_services.sh
+```
+Equilibrate charge after (restarting update of service without image)
+```
+docker service update --force  back
+```
+```
+bash print_services.sh
+```
+```
+docker service update --force  front
+```
+```
+bash print_services.sh
+```
+```
+docker service update --force  mongo
+```
+```
+bash print_services.sh
+```
 ```
 docker service create svc1 --contrainst engine.label==ssd nginx
 ```
