@@ -156,11 +156,12 @@ docker service ps foo
 docker service logs foo
 ```
 ```
-docker service rm foo
-```
-```
 bash print_services.sh
 ```
+```
+docker service rm foo
+```
+
 ## Testing service whoami
 ```
 docker service create --name web -p 80:80 emilevauge/whoami
