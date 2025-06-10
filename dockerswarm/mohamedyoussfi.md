@@ -186,6 +186,9 @@ docker service create --name front --network exquisite -p 800:80 vdemeester/exqu
 docker service scale back=15
 ```
 ```
+bash print_services.sh
+```
+```
 docker service ls
 ```
 ```
@@ -193,6 +196,9 @@ docker service ps back
 ```
 ```
 docker service scale front=2
+```
+```
+bash print_services.sh
 ```
 ```
 docker service ls
@@ -207,15 +213,25 @@ docker service update --update-parallelism 2 --update-delay 10s front
 docker service update --image vdemeester/exquisite-web:v2 front
 ```
 ```
+bash print_services.sh
+```
+```
 docker service update --update-parallelism 2 --update-delay 10s back
 ```
 ```
 docker service update --image vdemeester/exquisite-words-java:v2  back
 ```
 ```
-docker node update --availability drain host3
+bash print_services.sh
+```
+```
+docker node update --availability drain <idhost_clusterswarm3>
 ```
 Other options ---> drain, active, pause
+```
+bash print_services.sh
+```
+
 ```
 docker service create svc1 --contrainst engine.label==ssd nginx
 ```
