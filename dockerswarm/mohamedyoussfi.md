@@ -196,6 +196,7 @@ docker service create --name mongo --network exquisite mongo:3.3.8
 ```
 docker service create --name front --network exquisite -p 800:80 vdemeester/exquisite-web:v1
 ```
+Tape in navigator <ip_node_manager:800>
 ```
 docker service scale back=15
 ```
@@ -208,6 +209,7 @@ docker service ls
 ```
 docker service ps back
 ```
+Tape in navigator <ip_node_manager:800>
 ```
 docker service scale front=2
 ```
@@ -220,6 +222,7 @@ docker service ls
 ```
 docker service ps front
 ```
+Tape in navigator <ip_node_manager:800>
 ```
 docker service update --update-parallelism 2 --update-delay 10s front
 ```
@@ -229,6 +232,7 @@ docker service update --image vdemeester/exquisite-web:v2 front
 ```
 bash print_services.sh
 ```
+Tape in navigator <ip_node_manager:800>
 ```
 docker service update --update-parallelism 2 --update-delay 10s back
 ```
@@ -238,6 +242,7 @@ docker service update --image vdemeester/exquisite-words-java:v2  back
 ```
 bash print_services.sh
 ```
+Tape in navigator <ip_node_manager:800>
 ```
 docker node update --availability drain <idhost_clusterswarm3>
 ```
