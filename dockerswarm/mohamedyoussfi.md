@@ -168,13 +168,14 @@ docker service create --name web -p 80:80 emilevauge/whoami
 ```
 ```
 docker service ps web
- ```
-```
-docker service rm web
 ```
 ```
 bash print_services.sh
 ```
+```
+docker service rm web
+```
+
 ## Testing service rolling update & rolling back & draining exquisite web
 
 ```
