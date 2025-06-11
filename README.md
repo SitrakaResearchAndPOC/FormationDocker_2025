@@ -43,8 +43,8 @@ Evaluation classroom : nimcrnl
 ** [base_docker5](https://www.youtube.com/watch?v=fZZwN_e3LYg&pp=ygUVZWF6eXRyYWluaW5nICsgZG9ja2Vy) </br>
 ** [base_docker6](https://www.youtube.com/watch?v=jXBS9-lvyvY&t=10s&pp=ygUGZG9ja2Vy) </br>
 ** [base_docker7](https://www.youtube.com/watch?v=xupiMCvsaQc&pp=0gcJCckAaK0XXGki) </br>
-** [base_docker8](https://www.youtube.com/watch?v=sn6PlRf-UHk)
-** [base_docker9](https://www.youtube.com/watch?v=Jpesrg2R9ag&pp=ygUPa29yYmVuICsgZG9ja2Vy)
+** [base_docker8](https://www.youtube.com/watch?v=sn6PlRf-UHk) </br>
+** [base_docker9](https://www.youtube.com/watch?v=Jpesrg2R9ag&pp=ygUPa29yYmVuICsgZG9ja2Vy) </br>
 ** [docker_compose1](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose2](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose3](https://www.youtube.com/watch?v=y1QUtn_x12I) </br>
@@ -65,7 +65,7 @@ Evaluation classroom : nimcrnl
 ** [intro_kubernetes](https://www.youtube.com/watch?v=wzH0qIq1sjQ) </br>
 
 inpulse tv </br>
-techwale 
+techwale </br>
 [techwale1](https://www.youtube.com/watch?v=87vc5bFDApk&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
 [techwale2](https://www.youtube.com/watch?v=10DBlZJntHc&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
 [techwale3](https://www.youtube.com/watch?v=Te9Xit1m2IU&pp=ygUaa3ViZXJuZXRlcyArIGZyYW5jYWlzICsgdHY%3D)  </br>
