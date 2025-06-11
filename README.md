@@ -33,7 +33,8 @@ Evaluation classroom : nimcrnl
 ** [bonne_pratique1](https://www.youtube.com/watch?v=BOrgHSF4rKQ)  </br>
 ** [bonne_pratique2](https://www.youtube.com/watch?v=rVJMH9iuelA&pp=ygUUYm9ubmUgcHJhdGlxdWUgeGF2a2k%3D)  </br>
 
-* Ressources : 
+* Ressources :
+  
 ** [architecture1](https://www.youtube.com/shorts/AZ-DZkagKUg) </br>
 ** [architecture2](https://www.youtube.com/shorts/3jsmO0vz8os) </br>
 ** [base_docker1](https://www.youtube.com/playlist?list=PLn6POgpklwWq0iz59-px2z-qjDdZKEvWd) </br>
