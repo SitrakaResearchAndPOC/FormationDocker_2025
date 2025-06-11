@@ -34,8 +34,8 @@ Evaluation classroom : nimcrnl
 ** [bonne_pratique2](https://www.youtube.com/watch?v=rVJMH9iuelA&pp=ygUUYm9ubmUgcHJhdGlxdWUgeGF2a2k%3D)  </br>
 
 * Ressources : 
-** [architecture1](https://www.youtube.com/shorts/AZ-DZkagKUg)
-** [architecture2](https://www.youtube.com/shorts/3jsmO0vz8os)
+** [architecture1](https://www.youtube.com/shorts/AZ-DZkagKUg) </br>
+** [architecture2](https://www.youtube.com/shorts/3jsmO0vz8os) </br>
 ** [base_docker1](https://www.youtube.com/playlist?list=PLn6POgpklwWq0iz59-px2z-qjDdZKEvWd) </br>
 ** [base_docker2](https://www.youtube.com/playlist?list=PLpLG--nxBMd-wO_MAWh3gzqCcFh4qNMvP)  </br>
 ** [base_docker3](https://www.youtube.com/watch?v=3aompDCIUPA) </br>
@@ -43,6 +43,8 @@ Evaluation classroom : nimcrnl
 ** [base_docker5](https://www.youtube.com/watch?v=fZZwN_e3LYg&pp=ygUVZWF6eXRyYWluaW5nICsgZG9ja2Vy) </br>
 ** [base_docker6](https://www.youtube.com/watch?v=jXBS9-lvyvY&t=10s&pp=ygUGZG9ja2Vy) </br>
 ** [base_docker7](https://www.youtube.com/watch?v=xupiMCvsaQc&pp=0gcJCckAaK0XXGki) </br>
+** [base_docker8](https://www.youtube.com/watch?v=sn6PlRf-UHk)
+** [base_docker9](https://www.youtube.com/watch?v=Jpesrg2R9ag&pp=ygUPa29yYmVuICsgZG9ja2Vy)
 ** [docker_compose1](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose2](https://www.youtube.com/@nicelydev) </br>
 ** [docker_compose3](https://www.youtube.com/watch?v=y1QUtn_x12I) </br>
