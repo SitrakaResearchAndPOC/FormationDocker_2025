@@ -143,6 +143,12 @@ Tape ctrl+x and Yes for saving
 ```
 docker node ls
 ```
+IN ALL TERMINAL MAKE
+```
+docker pull alpine
+```
+service foo by image alpine for testing ping </br>
+Terminal clusterswarm1
 ```
 docker service create --name foo alpine ping 8.8.8.8
 ```
@@ -163,6 +169,11 @@ docker service rm foo
 ```
 
 ## Testing service whoami
+IN ALL TERMINAL
+```
+docker pull emilevauge/whoami
+```
+Terminal clusterswarm1
 ```
 docker service create --name web -p 80:80 emilevauge/whoami
 ```
@@ -184,15 +195,30 @@ docker network create --driver overlay --opt encrypted exquisite
 ```
 docker network ls
 ```
+IN ALL TERMINAL
+```
+docker pull vdemeester/exquisite-words-java:v1
+```
+Terminal clusterswarm1
 ```
 docker service create --name back --network exquisite --limit-memory 64M --reserve-memory 64M vdemeester/exquisite-words-java:v1
 ```
 ```
 docker service ls
 ```
+IN ALL TERMINAL
+```
+docker pull  mongo:3.3.8
+```
+Terminal clusterswarm1
 ```
 docker service create --name mongo --network exquisite mongo:3.3.8
 ```
+IN ALL TERMINAL
+```
+docker pull vdemeester/exquisite-web:v1
+```
+Terminal clusterswarm1
 ```
 docker service create --name front --network exquisite -p 800:80 vdemeester/exquisite-web:v1
 ```
@@ -226,6 +252,11 @@ Tape in navigator <ip_node_manager:800>
 ```
 docker service update --update-parallelism 2 --update-delay 10s front
 ```
+IN ALL TERMINAL
+```
+docker pull vdemeester/exquisite-web:v2
+```
+Terminal clusterswarm1
 ```
 docker service update --image vdemeester/exquisite-web:v2 front
 ```
@@ -236,6 +267,11 @@ Tape in navigator <ip_node_manager:800>
 ```
 docker service update --update-parallelism 2 --update-delay 10s back
 ```
+IN ALL TERMINAL
+```
+docker pull  vdemeester/exquisite-words-java:v2 
+```
+Terminal clusterswarm1
 ```
 docker service update --image vdemeester/exquisite-words-java:v2  back
 ```
@@ -279,6 +315,17 @@ bash print_services.sh
 ```
 docker service create svc1 --contrainst engine.label==ssd nginx
 ```
+## Portainer
+```
+curl -L https://downloads.portainer.io/ce2-16/portainer-agent-stack.yml -o portainer-agent-stack.yml
+```
+```
+docker stack deploy -c portainer-agent-stack.yml portainer
+```
+```
+docker ps
+```
+
 ## Testing service web
 ```
 docker service create --replicas 10 --name web  -p 80:80 nginx
@@ -286,6 +333,4 @@ docker service create --replicas 10 --name web  -p 80:80 nginx
 ```
 docker node ps 
 ```
-
-
 
