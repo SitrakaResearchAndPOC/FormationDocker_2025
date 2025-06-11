@@ -322,10 +322,23 @@ curl -L https://downloads.portainer.io/ce2-16/portainer-agent-stack.yml -o porta
 ```
 docker stack deploy -c portainer-agent-stack.yml portainer
 ```
+IN ALL TERMINAL
 ```
-docker ps
+docker ps | grep portainer
 ```
-
+Terminal clusterswarm1
+```
+docker stack ls
+```
+```
+docker service ls
+```
+open in the 
+```
+<ip_node_manager:9000>
+```
+9000 is the port of portainer </br>
+mesh routing with portainer : <ip_node_manager:9000> could be accessed in all container -> all ip address
 ## Testing service web
 ```
 docker service create --replicas 10 --name web  -p 80:80 nginx
