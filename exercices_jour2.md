@@ -924,6 +924,29 @@ ports uniques </br>
 ```
 docker volume create vivetic
 ```
+Chemin 
+WSL 2	
+```
+\\wsl$
+```
+ou en powershell
+```
+cd "\\wsl.local\<name_vm_hyperviseur>"
+```
+eg : 
+```
+cd "\\wsl.localhost\Ubuntu-24.04"
+```
+
+WSL 1	
+```
+C:\ProgramData\DockerDesktop
+```
+ou 
+```
+C:\ProgramData\Docker
+```
+
 ```
 docker volume ls 
 ```
