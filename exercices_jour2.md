@@ -959,7 +959,9 @@ docker run -itd --name nginx2 --mount type=volume,source=vivetic,target=/usr/sha
 
 ## Correction exercice 2 : dans slide : Dockerfile
 * Création de répértoire de travail
+</br>
 POUR EVITER ERREUR : exec /home/docker/script/service_start.sh: no such file or directory</br>
+</br>
 AJOUTER notepad++ dans variable environnement/PATH de windows </br>
 UTILISER notepad++ pour editer les codes et changer en UNIX LF et non Windows CRLF (en bas de notepad++) </br>
 ```
