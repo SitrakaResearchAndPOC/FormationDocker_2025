@@ -936,6 +936,9 @@ docker run -itd --name nginx2 --mount type=volume,source=vivetic,target=/usr/sha
 
 ## Correction exercice 2 : dans slide : Dockerfile
 * Création de répértoire de travail
+POUR EVITER ERREUR : exec /home/docker/script/service_start.sh: no such file or directory</br>
+AJOUTER notepad++ dans variable environnement/PATH de windows </br>
+UTILISER notepad++ pour editer les codes et changer en UNIX LF et non Windows CRLF (en bas de notepad++) </br>
 ```
 mkdir nginx-ubuntu
 ```
@@ -981,17 +984,17 @@ nano default
 ```
 ```
 server {
-		listen 2080 default_server;
-		listen [::]:2080 default_server;
+    listen 2080 default_server;
+    listen [::]:2080 default_server;
 
-		root /var/www/html;
-		index index.htm index.html;
+    root /var/www/html;
+    index index.html index.htm;
 
-		server_name _;
-		
-		location / {
-			try_files $uri $uri/ =404;
-		}
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
 }
 ```
 Tapez ctrl+x puis y -> entrer
@@ -1000,11 +1003,11 @@ Tapez ctrl+x puis y -> entrer
 ```
 nano service_start.sh 
 ```
+SANS MODE DETACHE
 ```
 #!/bin/bash
-echo bonjour mes amis
-service nginx start
-/bin/bash
+echo LANCEMENT DE SERVEUR NGINX
+nginx -g 'daemon off;'
 ```
 Tapez ctrl+x puis y -> entrer
 ```
@@ -1014,6 +1017,35 @@ docker build -t viveticimg .
 docker run -it --name viveticimg1 -p 8080:2080 viveticimg
 ```
 RAFRAICHIR locahost:8080
+```
+exit
+```
+```
+cd ..
+```
+
+OU AVEC MODE DETACHE
+```
+#!/bin/bash
+echo "LANCEMENT DU SERVEUR NGINX"
+
+# Lancer nginx en arrière-plan
+service nginx start
+
+# Ouvrir un shell interactif pour garder le conteneur actif
+exec bash
+```
+Tapez ctrl+x puis y -> entrer
+```
+docker build -t viveticimg .
+```
+```
+docker run -itd --name viveticimg1 -p 8080:2080 viveticimg
+```
+RAFRAICHIR locahost:8080
+```
+docker exec -it  viveticimg1 bash
+```
 ```
 exit
 ```
