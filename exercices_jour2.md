@@ -964,13 +964,16 @@ POUR EVITER ERREUR : exec /home/docker/script/service_start.sh: no such file or 
 </br>
 AJOUTER notepad++ dans variable environnement/PATH de windows </br>
 UTILISER notepad++ pour editer les codes et changer en UNIX LF et non Windows CRLF (en bas de notepad++) </br>
+
 ```
 mkdir nginx-ubuntu
 ```
 ```
 cd nginx-ubuntu
 ```
+
 * Création de Dockerfile
+
 ```
 nano Dockerfile
 ```
@@ -1058,7 +1061,7 @@ echo "LANCEMENT DU SERVEUR NGINX"
 service nginx start
 
 # Ouvrir un shell interactif pour garder le conteneur actif
-exec bash
+/bin/bash
 ```
 Tapez ctrl+x puis y -> entrer
 ```
