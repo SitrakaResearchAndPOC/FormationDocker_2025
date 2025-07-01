@@ -982,12 +982,12 @@ FROM ubuntu
 MAINTAINER Josue R <josue.ratovondrahona@esti.mg>
 
 RUN apt-get update && apt-get install nginx -y
-COPY default /etc/nginx/sites-enabled
-COPY index.html /var/www/html
+COPY default /etc/nginx/sites-enabled/default
+COPY index.html /var/www/html/index.html
 COPY service_start.sh /home/docker/script/service_start.sh
-RUN chmod 744 /home/docker/script/service_start.sh
-ENTRYPOINT /home/docker/script/service_start.sh
-    
+RUN chmod +x /home/docker/script/service_start.sh
+ENTRYPOINT ["/home/docker/script/service_start.sh"]
+
 WORKDIR /home/docker
 ```
 Tapez ctrl+x puis y -> entrer
