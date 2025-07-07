@@ -630,7 +630,7 @@ cd web_php_mysql_nginx
 ```
 mkdir code
 ```
-* NGINGX SEULEMENT
+* NGINX SEULEMENT
 * docker-compose.yml
 ``` 
 nano docker-compose.yml
