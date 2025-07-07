@@ -604,7 +604,7 @@ docker-compose start
 docker-compose ps
 ```
 ```
-docker-compost stop
+docker-compose stop
 ```
 
 ```
@@ -617,7 +617,7 @@ curl localhost:8888
 </br>
 Ajouter des erreurs sur nginx puis lancer docker-compose </br>
 Ajouter des erreurs sur le code puis lancer docker-compose </br>
-Modifier la version de php en 7.4-fm puis lancer docker-compose </br>
+Modifier la version de php en 7.4-fpm puis lancer docker-compose </br>
 
 # Exercices 6 : web_php_mysql_nginx
 * Préparation des chemins
