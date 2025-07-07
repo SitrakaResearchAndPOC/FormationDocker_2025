@@ -1092,9 +1092,8 @@ cd debian-ping
 nano Dockerfile
 ```
 ```
-FROM debian:latest
-RUN apt-get update
-RUN apt-get -y install iputils-ping
+FROM debian
+RUN apt-get update && apt-get install -y iputils-ping
 ENTRYPOINT ["/bin/ping"]
 CMD ["localhost", "-c", "2"]
 ```
